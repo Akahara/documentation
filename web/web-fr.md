@@ -28,6 +28,7 @@ Certains blocks ont été masqués.
 	1. [Syntaxe](#syntaxe)
 	2. [Interaction avec le DOM](#interaction-avec-le-dom)
 	3. [Les requêtes en JS](#les-requêtes-en-js)
+  4. [Les twists de javascript](#les-twists-de-javascript)
 9. [Notes additionnelles](#notes-additionnelles)
 
 ### Comment ça marche, le web ?
@@ -649,7 +650,7 @@ $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $request = $connection->prepare("SELECT * FROM table WHERE column = ?;");
 $request->execute([ 3 ]);
 // get the query's results
-print_r($request->fetchAll());
+print_r($request->fetchAll(PDO::FETCH_ASSOC));
 ```
 
 Quelques précisions :
@@ -777,6 +778,17 @@ let mathNotes = allNotes.lessons[0].notes;
 Vous avez peut-être déjà vu cette syntaxe, c'est (presque) le JSON. C'est beaucoup utilisé un peu partout, pour des fichiers de configurations par exemple.
 Techniquement les retours à la ligne sont optionnels.
 
+> __Warning__ **Les types**
+> En JS, les variables n'ont pas de type, et souvent ca produit des bugs :
+> ```js
+> let x = 1;
+> let y = "10";
+> console.log(x+y); // "110"
+> console.log(x-y); // -9
+> console.log(x*y); // 10
+> ```
+> Pour passer de *string* à *number* il y a `parseInt("5")` et `parseFloat(3.14)`.
+
 ### Interaction avec le DOM
 
 > DOM = document object model, la page
@@ -834,6 +846,15 @@ resultDiv.appendChild(div);
 // retirer complètement un élément
 resultDiv.remove();
 ```
+
+> __Warning__ **L'ordre de chargement des scripts**
+>
+> Les scripts sont chargés en même temps que le reste du DOM, si vous mettez votre balise `<script>` en haut du document vous ne pourrez pas utiliser `querySelector` ou `getElementById` puisque les éléments n'existent pas encore !
+> Si vous en avez besoin vous pouvez mettre votre code dans une fonction appelée au chargement de la page :
+> ```js
+> document.addEventListener('load', () => initializeThings());
+> ```
+> Ou rajouter `defer` à la balise `<script>`, ce qui l'oblige à charger après le DOM.
 
 #### Les events
 
@@ -916,6 +937,14 @@ Souvent on passe par le format JSON pour échanger des données avec des requêt
 let response = xhr.responseText;
 let responseObject = JSON.parse(response);
 console.log(responseObject);
+```
+
+Dans le cas ou on *reçoit* une requête au lieu de l'émettre, on peut récupérer les paramètres GET de cette manière :
+```js
+let params = new URLSearchParams(window.location.search);
+if(params.has('someparam'))
+	console.log("Parameter someparam=", params.get('someparam'));
+// ne pas oublier parseInt ou parseFloat si vos paramètres sont des nombres
 ```
 
 ### Les twists de Javascript
@@ -1045,6 +1074,14 @@ Quand vous maitrisez un peu le langage il y a quelques opérateurs qui sont trè
 > }
 > ```
 > Attention à ne pas utiliser d'ids dans les templates ! Sinon si vous importez leurs contenus deux fois vous aurez des ids dupliquées.
+
+> __Note__ **L'opérateur ||**
+> En JS tout peut être converti en booléen (`null`->`false`, `""`->`false`, `"a"`->`true`, `0`->`false`, `-4`->`true`...) et l'opérateur `a||b` peut s'écrire `Boolean(a)?a:b`, ca permet d'écrire :
+> ```js
+> let params = new URLSearchParams(window.location.search);
+> let key = params.get('key') || "defaultKey";
+> ```
+> De cette manière, si `params.get('key')` renvoie quelque chose, ce sera la valeur de `key`, sinon `key` vaudra `"defaultKey"`.
 
 ## Notes additionnelles
 
