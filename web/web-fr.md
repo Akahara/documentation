@@ -28,8 +28,10 @@ Certains blocks ont été masqués.
 	1. [Syntaxe](#syntaxe)
 	2. [Interaction avec le DOM](#interaction-avec-le-dom)
 	3. [Les requêtes en JS](#les-requêtes-en-js)
-  4. [Les twists de javascript](#les-twists-de-javascript)
+	4. [Les twists de javascript](#les-twists-de-javascript)
 9. [Notes additionnelles](#notes-additionnelles)
+
+---
 
 ### Comment ça marche, le web ?
 
@@ -45,6 +47,8 @@ Pour faire un serveur, on utilisera *apache2* ou *nodeJS*, on verra plus tard co
 | JS - côté client  | Rend une page web interactive (click sur un bouton...) |
 | JS - côté serveur | Permet de faire un serveur web avec nodeJS |
 
+---
+
 ## Installation
 
 Pour programmer en web il va vous falloir :
@@ -56,6 +60,8 @@ Celui de votre ordi fera très bien l'affaire, personnellement j'utilise firefox
 Ce n'est pas nécessaire tout de suite, si vous voulez vous avancer vous pouvez installer [wamp](https://www.wampserver.com/en/) (windows), [lamp](https://doc.ubuntu-fr.org/lamp) (linux), [xampp](https://www.apachefriends.org/fr/index.html) (macos) ou [nodeJS](https://nodejs.dev/) (tout os). Les trois premiers sont des ensembles apache2-mysql-php.
 
 > Il va vous falloir un dossier dans lequel vous mettrez tous vos fichiers, ouvrez le avec VSCode, assurez vous qu'il soit vide pour l'instant.
+
+---
 
 ## HTML
 
@@ -132,6 +138,8 @@ Le W3C propose des outils très pratiques de validation html notamment. Une fois
 > Le w3c validator vous montrera les balises qui sont mal écrites mais aussi les attributs qui pourraient manquer.
 >
 > C'est important de faire valider votre html *avant* d'ajouter js/php car le validator ne supporte pas ces langages, et les contenus dynamiques générés sur la page ne pourront pas être vérifiés.
+
+---
 
 ## css
 
@@ -409,6 +417,8 @@ Ensuite vous pourrez intégrer des icônes en les trouvant [ici](https://fonts.g
 Vous pouvez utiliser [ce site](https://html-css-js.com/css/generator/box-shadow/) pour générer des effets sur les bordures.
 Vous pouvez utiliser [ce site](https://getwaves.io/) pour générer des vagues en svg et les intégrer à vos pages en tant qu'images.
 
+---
+
 ## Requêtes
 
 Avant de passer à la partie dynamique (php/js) il vaut mieux comprendre les requêtes.
@@ -442,6 +452,8 @@ Les *forms* (formulaires) sont les balises `<form action="..." method="...">` de
 Pour passer des paramètres il vous faut des balises `<input type="..."/>`.
 
 Plus d'info dans les exemples.
+
+---
 
 ## php
 
@@ -696,6 +708,8 @@ De cette manière quelqu'un qui tape l'url de l'API vera une réponse en JSON et
 
 > Si jamais vous vous posez la question : une **API** c'est juste ça, donner la possibilité d'accéder à des données depuis l'extérieur.
 
+---
+
 ## Le MVC
 
 L'idée du pattern MVC (model-view-controller) est de scinder les données, l'affichage et la logique d'un système.
@@ -713,6 +727,8 @@ Typiquement dans un projet en MVC on aura 3 dossiers principaux : `model`, `view
 >
 > Personnellement, je n'aime pas du tout diviser mes fichiers de cette manière, ce que je fais souvent c'est de mettre tout mon code serveur (php) dans un dossier et tout le code client (html/js/css) dans un autre, et j'utilise js pour faire des requêtes sur mon code php plutôt que d'intégrer php directement (= je n'ai que des .html, pas de .php dans mon code client).
 > Vous êtes libre d'adapter le modèle à votre sauce, mais pour un premier projet c'est sans doute mieux de suivre le MVC à la lettre.
+
+---
 
 ## JS
 
@@ -779,6 +795,7 @@ Vous avez peut-être déjà vu cette syntaxe, c'est (presque) le JSON. C'est bea
 Techniquement les retours à la ligne sont optionnels.
 
 > __Warning__ **Les types**
+> 
 > En JS, les variables n'ont pas de type, et souvent ca produit des bugs :
 > ```js
 > let x = 1;
@@ -1076,12 +1093,15 @@ Quand vous maitrisez un peu le langage il y a quelques opérateurs qui sont trè
 > Attention à ne pas utiliser d'ids dans les templates ! Sinon si vous importez leurs contenus deux fois vous aurez des ids dupliquées.
 
 > __Note__ **L'opérateur ||**
+> 
 > En JS tout peut être converti en booléen (`null`->`false`, `""`->`false`, `"a"`->`true`, `0`->`false`, `-4`->`true`...) et l'opérateur `a||b` peut s'écrire `Boolean(a)?a:b`, ca permet d'écrire :
 > ```js
 > let params = new URLSearchParams(window.location.search);
 > let key = params.get('key') || "defaultKey";
 > ```
 > De cette manière, si `params.get('key')` renvoie quelque chose, ce sera la valeur de `key`, sinon `key` vaudra `"defaultKey"`.
+
+---
 
 ## Notes additionnelles
 
@@ -1118,6 +1138,8 @@ Quand vous maitrisez un peu le langage il y a quelques opérateurs qui sont trè
 > │   └── ...
 > └── ...
 > ```
+
+---
 
 ### NodeJS
 
