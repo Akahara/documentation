@@ -144,7 +144,7 @@ Le W3C propose des outils très pratiques de validation html notamment. Une fois
 ## css
 
 Le css permet de donner le style de votre page, les deux parties clés du css sont le positionnement et le reste (couleur, polices, effets...). Pour rajouter une feuille de style à votre page il vous faut créer un fichier .css et le lier à votre html via une balise
-```
+```html
 <link href="style.css" rel="stylesheet"/>
 ```
 dans votre balise `<head>`.
@@ -356,30 +356,29 @@ Rapportez vous à l'onglet *Mise en page* des devtools pour vérifier que vos ma
 
 > __Note__ **Unités de taille**
 >
->
-| Unité | Dimension | Exemple |
-|-------|-----------|---------|
-| px | nombre en pixels | `10px` - 10 pixels|
-| % | taille relative au parent | `10%` - 10% de la largeur du parent|
-| rem | taille relative à la taille du texte de la page | `2.5rem` - 2,5 fois la taille du texte|
-| em | taille relative à la taille du texte du parent | `2.5em` - 2,5 fois la taille du texte |
-| vw | taille relative à la largeur de la page | `50vw` - 50% de la largeur de la page |
-| vh | taille relative à la hauteur de la page | `50vh` - 50% de la hauteur de la page |
+> | Unité | Dimension | Exemple |
+> |-------|-----------|---------|
+> | px | nombre en pixels | `10px` - 10 pixels|
+> | % | taille relative au parent | `10%` - 10% de la largeur du parent|
+> | rem | taille relative à la taille du texte de la page | `2.5rem` - 2,5 fois la taille du texte|
+> | em | taille relative à la taille du texte du parent | `2.5em` - 2,5 fois la taille du texte |
+> | vw | taille relative à la largeur de la page | `50vw` - 50% de la largeur de la page |
+> | vh | taille relative à la hauteur de la page | `50vh` - 50% de la hauteur de la page |
 >
 > Il en existe d'autres mais qui sont beaucoup plus rarement utilisées.
 
 > __Note__ **Unités de couleur**
 >
 >
-| Format | Usage | Exemple |
-|--------|-------|---------|
-| *nom* | nom de la couleur | `red`, `dark-grey` |
-| rgb(*r*, *g*, *b*) | couleur rgb | `rgb(200, 245, 43)` |
-| rgba(*r*, *g*, *b*, *a*) | couleur rgba | `rgba(200, 245, 43, 0.4)` |
-| \#rrggbb | couleur hexadécimale | `#ffbba2` |
-| \#rrggbbaa | couleur hexadécimale | `#ffbba2a0` |
-| hsl(*h*, *s*, *l*) | couleur hsl | `hsl(360, 100%, 50%)` |
-| hsl(*h*, *s*, *l*, *a*) | couleur hsla | `hsl(360, 100%, 50%, 0.4)` |
+> | Format | Usage | Exemple |
+> |--------|-------|---------|
+> | *nom* | nom de la couleur | `red`, `dark-grey` |
+> | rgb(*r*, *g*, *b*) | couleur rgb | `rgb(200, 245, 43)` |
+> | rgba(*r*, *g*, *b*, *a*) | couleur rgba | `rgba(200, 245, 43, 0.4)` |
+> | \#rrggbb | couleur hexadécimale | `#ffbba2` |
+> | \#rrggbbaa | couleur hexadécimale | `#ffbba2a0` |
+> | hsl(*h*, *s*, *l*) | couleur hsl | `hsl(360, 100%, 50%)` |
+> | hsl(*h*, *s*, *l*, *a*) | couleur hsla | `hsl(360, 100%, 50%, 0.4)` |
 >
 > Pour trouver une couleur utilisez votre ide ou tapez "color picker" sur google.
 

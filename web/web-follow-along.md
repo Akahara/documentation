@@ -120,7 +120,7 @@ Pour afficher des vidéos il va vous falloir... des vidéos (qui l'eut cru !). P
 > __Note__ **Etape 4a (10min)**
 >
 > Faites vous une liste de vidéos et mettez-la dans un fichier `videos.php`, vous pouvez aussi reprendre la mienne si ça ne vous intéresse pas.
-> >Si vous faites le projet discord plutôt que youtube, vous pouvez faire une liste de comptes ou de messages.
+> > Si vous faites le projet discord plutôt que youtube, vous pouvez faire une liste de comptes ou de messages.
 
 Ensuite il reste à rajouter le php dans la page, d'abord avec un `#include "videos.php"` en haut de la page puis avec des `foreach`, `echo` ou `<?= ... ?>`.
 

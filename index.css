@@ -1,0 +1,163 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+}
+
+body {
+    margin: 50px;
+    width: 50%;
+}
+
+blockquote {
+    border-left: 5px solid rgba(212, 212, 212, 0.333);
+    /* background-color: rgba(82, 82, 82, 0.044); */
+    padding: 10px;
+    border-radius: 4px;
+}
+
+blockquote > p:last-child,
+blockquote > p:first-child {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+blockquote > p {
+    color: rgb(87, 96, 106);
+}
+
+h1,h2,h3,h4 {
+    font-weight: 900;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    margin-top: 60px;
+}
+
+h1 { border-bottom: 1px solid rgb(113, 113, 113); }
+h2 { border-bottom: 1px solid rgb(113, 113, 113); }
+h3 { border-bottom: 1px solid rgb(113, 113, 113); }
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace,monospace;
+    font-size: 1em;
+}
+
+code {
+    background-color: rgba(175, 184, 193, 0.2);
+    padding: .2em .4em;
+    border-radius: 6px;
+    font-size: 85%;
+}
+
+pre > code {
+    background-color: transparent;
+    padding: 0;
+}
+
+pre {
+    padding: 10px;
+    border-radius: 2px;
+    background-color: rgb(246, 248, 250);
+    overflow-x: auto;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid #d0d7de;
+    padding: 6px 13px;
+}
+
+tbody > tr:nth-child(2n) {
+    background-color: #f6f8fa;
+}
+
+a {
+    text-decoration: none;
+    color: #0969da;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+li {
+    margin-top: 3px;
+}
+
+image {
+    color: rgb(212, 75, 75);
+}
+
+.callout {
+    padding: 0;
+    border-color: var(--callout-c1);
+    background-color: rgba(0, 0, 0, 0.018);
+}
+
+.callout > :first-child {
+    margin: 0;
+    padding: 10px;
+    background-color: var(--callout-c2);
+    color: white;
+}
+
+.callout > :first-child::before {
+    font-family: "Material Icons Outlined";
+    content: var(--callout-icon, '\e88e');
+    color: var(--callout-c1);
+    vertical-align: middle;
+    margin-right: 8px;
+    font-size: 1.3em;
+}
+
+.callout > :last-child {
+    padding: 10px;
+}
+
+.callout > :last-child > :first-child { margin-top: 0; }
+.callout > :last-child > :last-child { margin-bottom: 0; }
+
+.callout-tldr { --callout-c1: rgb(76, 182, 196); --callout-c2: rgb(136, 207, 220); --callout-icon: '\e88e' }
+
+.hljs-name { color: rgb(17, 99, 41); }
+.hljs-attr { color: rgb(5, 80, 174); }
+.hljs-string { color: rgb(10, 48, 105); }
+.hljs-title,
+.hljs-keyword { color: rgb(207, 34, 46); }
+.hljs-comment { color: rgb(110, 119, 129); }
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-selector-pseudo,
+.hljs-selector-attr,
+.hljs-selector-tag { color: rgb(17, 99, 41); }
+.hljs-attribute,
+.hljs-number,
+.hljs-meta,
+.hljs-literal,
+.hljs-property { color: rgb(5, 80, 174); }
+.hljs-variable,
+.hljs-function,
+.hljs-params,
+.hljs-subst  { color: initial; }
+.hljs-built_in { color: rgb(130, 80, 223); }
+/* .hljs-class { color: red; } */
+/* .hljs-tag { color: red; } */
+/* .function_
+.invoke__ */
+/* .constant_
+.language-js
+.language_ */
+/* .class_ */
+/* .language-bash */
+/* .language-javascript */
