@@ -52,7 +52,7 @@ export default function remarkCallouts() {
 }
 
 function mdastCalloutToHast(h, node) {
-    let properties = { class: `callout-${node.calloutType} callout` };
+    let properties = { className: [`callout-${node.calloutType}`, 'callout'] }; // TODO check
     let children = all(h, node);
     let l = h(node, 'blockquote', properties, children);
     // l.children[0].tagName = 'h6';

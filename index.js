@@ -10,9 +10,10 @@ import rehypeSlug from 'rehype-slug'
 import remarkPresetLintConsistent from 'remark-preset-lint-consistent'
 import remarkPresetLintRecommended from 'remark-preset-lint-recommended'
 import rehypeHighlight from 'rehype-highlight'
+import rehypeCustomHighlight from './rehype-custom-highlight.js'
+
 import fs from 'fs'
 import remarkCallouts, { calloutHastHandlers } from './remark-callouts.js'
-// const util = require('util');
 import util from 'util'
 
 // https://github.com/JS-DevTools/rehype-toc
@@ -30,15 +31,23 @@ async function main() {
     .use(remarkParse)
     .use(remarkFrontmatter)
     .use(remarkGfm)
-    .use(printTree)
+    // .use(printTree)
     .use(remarkRehype, calloutHastHandlers)
     .use(rehypeSlug)
     // .use(rehypeSanitize)
-    .use(rehypeHighlight)
+    .use(printTree)
+    .use(rehypeCustomHighlight)
+    // .use(rehypeHighlight)
     .use(rehypeStringify)
     // .process(fs.readFileSync('web/web-follow-along.md'));
-    .process(fs.readFileSync('web/web-fr.md'));
+    // .process(fs.readFileSync('web/web-fr.md'));
     // .process(fs.readFileSync('web/old.md'));
+    .process(`
+    \`\`\`js
+    for(let i = 0; i < 3; i++)
+      console.log(i);
+    \`\`\`
+    `);
 //     .process('\
 // > [!tldr] Text\n\
 // >\n\

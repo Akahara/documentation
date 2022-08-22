@@ -2,10 +2,10 @@ Most documents here were created with [Obsidian](https://obsidian.md). Github's 
 
 To convert an obsidian file to a github one, apply the following regex replacements :
 ```regex
-> \[!(?:abstract|tldr|check|info)\] (.*)\n
+> ?\[!(?:abstract|tldr|check|info)\] (.*)\n
 > __Note__**$1**\n>\n
 
-> \[!(?:attention|warning)\] (.*)\n
+> ?\[!(?:attention|warning)\] (.*)\n
 > __Warning__ **$1**\n>\n
 
 !\[\[(.*)\]\]
