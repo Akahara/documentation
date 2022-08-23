@@ -1,0 +1,1 @@
+This repository is an [obsidian](https://obsidian.md) vault. It does not conform exactly to github's markdown standard, go to [acalais.fr/documentation](https://acalais.fr/documentation) to see a better version.
