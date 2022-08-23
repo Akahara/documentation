@@ -27,7 +27,7 @@ On commence *toujours* par l'html, on y écrit ce que contient la page. Le but d
 > Commencez avec une page vide puis rajoutez les balises, les textes et même les images si vous voulez. Utilisez le [lorem ipsum](https://www.lipsum.com/) pour les textes longs, ça ne sert à rien d'écrire le contenu de votre site tout de suite.
 
 [code](follow-allong/step%201/)
-![missing image](/web/follow-allong/screenshots/step%201.png)
+![missing image](web/follow-allong/screenshots/step%201.png)
 
 ### Un meilleur html
 

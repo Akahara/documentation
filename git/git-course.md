@@ -53,7 +53,7 @@ Git fonctionne avec des <u>commit</u>. Une fois que vous avez modifié quelque c
 > La shell (terminal/command line/user prompt/powershell/invité de commande...) est un outil du développeur qui peut à peu près tout faire, mais sans interface.
 >  On en aura un usage assez basique, si vous ne l'avez jamais utilisé dites vous que c'est un "explorateur de fichiers très évolué". Démarrez une shell, tapez `pwd` pour savoir où vous êtes, utilisez `ls` pour lister les fichiers de votre emplacement, `cd ..` pour revenir un dossier en arrière ou `cd truc` pour aller dans le dossier truc.
 >  
->  ![missing image](resources/cmd.png|500)
+>  ![missing image](resources/cmd.png)
 
 #### La partie simple
 
