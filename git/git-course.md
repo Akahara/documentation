@@ -4,6 +4,8 @@
 
 ## Une introduction
 
+{{TOC}}
+
 ### Qu'est-ce que c'est ?
 Git est un outil de gestion de versions, il permet de synchroniser des fichiers entre plusieurs personnes et de garder un historique des modifications.
 
@@ -39,7 +41,7 @@ Git fonctionne avec des <u>commit</u>. Une fois que vous avez modifié quelque c
 > - **remote** - le répo git distant (sur github), c'est le repository principal de votre projet
 > - **local** - le répo git local (sur votre ordi, il peut y en avoir plusieurs)
 > - **staged** - un fichier est "staged" si git l'a sauvegardé mais qu'il n'est pas encore dans un commit
-> - **branch** - cf [[git-course#Les branches|les branches]]
+> - **branch** - cf [les branches](git-course#Les%20branches)
 > - **head** - le dernier commit local (sur la branche active)
 > - **pull** - récupérer les modifications des autres depuis le remote
 > - **push** - envoyer ses propres modifications vers le remote
