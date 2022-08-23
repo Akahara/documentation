@@ -1,37 +1,16 @@
 # Développement web
 
-## Intro
-
-Avec ce "cours" je compte vous apprendre à vous servir d'html, css, php et javascript (js) pour construire un site web complet. Je n'ai pas besoin de vous expliquer à quel point le web est important... duh. Et savoir faire ça est très pratique, surtout pour la création d'interfaces - vous pouvez toujours utiliser d'autres langages style Java, c++ etc pour créer des interfaces mais le web est *fait pour* ; même dans vos autres projets passer par html/css est souvent très pratique.
+Un "cours" qui traite de tous les aspects du web nécessaires pour réaliser un site.
 
 ## Table des matières
 
 Certains blocks ont été masqués.
 
-1. [Comment ça marche le web ?](#comment-ça-marche-le-web-)
-2. [Installation](#installation)
-3. [HTML](#html)
-	1. [Les balises utiles](#les-balises-utiles)
-	2. [W3C](#w3c)
-4. [css](#css)
-	1. [Sélecteurs](#sélecteurs)
-	2. [Les devtools](#les-devtools)
-	3. [Positionnement](#positionnement)
-	4. [Styles](#styles)
-5. [Requêtes](#requêtes)
-6. [php](#php)
-	1. [Syntaxe de base](#syntaxe-de-base)
-	2. [Intégration en html](#intégration-en-html)
-	3. [PDO](#pdo)
-7. [Le MVC](#le-mvc)
-8. [JS](#js)
-	1. [Syntaxe](#syntaxe)
-	2. [Interaction avec le DOM](#interaction-avec-le-dom)
-	3. [Les requêtes en JS](#les-requêtes-en-js)
-	4. [Les twists de javascript](#les-twists-de-javascript)
-9. [Notes additionnelles](#notes-additionnelles)
+{{TOC}}
 
----
+## Intro
+
+Avec ce "cours" je compte vous apprendre à vous servir d'html, css, php et javascript (js) pour construire un site web complet. Je n'ai pas besoin de vous expliquer à quel point le web est important... duh. Et savoir faire ça est très pratique, surtout pour la création d'interfaces - vous pouvez toujours utiliser d'autres langages style Java, c++ etc pour créer des interfaces mais le web est *fait pour* ; même dans vos autres projets passer par html/css est souvent très pratique.
 
 ### Comment ça marche, le web ?
 
@@ -47,21 +26,17 @@ Pour faire un serveur, on utilisera *apache2* ou *nodeJS*, on verra plus tard co
 | JS - côté client  | Rend une page web interactive (click sur un bouton...) |
 | JS - côté serveur | Permet de faire un serveur web avec nodeJS |
 
----
-
-## Installation
+### Installation
 
 Pour programmer en web il va vous falloir :
-- **Un IDE**
+-   **Un IDE** -
 J'utilise Visual Studio Code (VSCode) comme IDE, il connaît par défaut html, css, js et php. Ne confondez pas Visual Studio et Visual Studio Code !
-- **Un navigateur web**
+-   **Un navigateur web** -
 Celui de votre ordi fera très bien l'affaire, personnellement j'utilise firefox.
-- **Un serveur web**
+-   **Un serveur web** -
 Ce n'est pas nécessaire tout de suite, si vous voulez vous avancer vous pouvez installer [wamp](https://www.wampserver.com/en/) (windows), [lamp](https://doc.ubuntu-fr.org/lamp) (linux), [xampp](https://www.apachefriends.org/fr/index.html) (macos) ou [nodeJS](https://nodejs.dev/) (tout os). Les trois premiers sont des ensembles apache2-mysql-php.
 
 > Il va vous falloir un dossier dans lequel vous mettrez tous vos fichiers, ouvrez le avec VSCode, assurez vous qu'il soit vide pour l'instant.
-
----
 
 ## HTML
 
@@ -95,10 +70,11 @@ Le reste du fichier va se composer en *balises html*, par exemple la balise `<ht
 Si vous ouvrez le fichier maintenant avec votre navigateur vous devriez avoir une page blanche qui s'appelle "Document".
 
 
-> __Note__
+> [!hint] Syntaxe </>
 > 
 > La quasi-totalité des balises s'ouvrent avec `<...>` et se ferment avec `</...>`, certaines ne peuvent pas avoir de contenu, dans ce cas elles n'ont pas besoin de se fermer, on les écrira plutôt comme `<.../>`, par exemple `<img/>`.
 > > Techniquement le / n'est pas nécessaire, il est possible que j'en oublie certains, vous n'êtes pas obligés non plus de le mettre si vous savez quelles balises possèdent un contenu ou pas.
+>
 > On peut rajouter des paramètres à certaines balises, par exemple `lang="en"` dans la balise `html`, les paramètres dépendent de la balise.
 
 ### Les balises utiles
@@ -122,7 +98,7 @@ Si vous ouvrez le fichier maintenant avec votre navigateur vous devriez avoir un
 
 Vous pouvez en retrouver plus dans la [doc mdn](https://developer.mozilla.org/en-US/docs/Web/HTML/Element).
 
-> __Note__ **Quoi utiliser et quand**
+> [!question] Quoi utiliser et quand
 > 
 > Pour choisir quelle balise utiliser il faut penser au rôle de ce que vous voulez ajouter, et pas du tout au visuel. Typiquement, si vous voulez une liste horizontale d'images vous utiliserez plutôt `<ul>`, même si la liste va s'afficher verticalement sans css.
 >
@@ -133,13 +109,11 @@ Vous pouvez en retrouver plus dans la [doc mdn](https://developer.mozilla.org/en
 
 Le W3C propose des outils très pratiques de validation html notamment. Une fois que vous avez fini votre page vous pouvez la donner au [W3C validator](https://validator.w3.org/) pour vérifier que tout est bien écrit.
 
-> __Note__ **Ce que fait le W3C validator**
+> [!example] Ce que fait le W3C validator
 >
 > Le w3c validator vous montrera les balises qui sont mal écrites mais aussi les attributs qui pourraient manquer.
 >
 > C'est important de faire valider votre html *avant* d'ajouter js/php car le validator ne supporte pas ces langages, et les contenus dynamiques générés sur la page ne pourront pas être vérifiés.
-
----
 
 ## css
 
@@ -228,9 +202,9 @@ input[type=text] {}
 :hover {}
 ```
 
-- L'opérateur `:not(selecteur)` fonctionne avec tous les selecteurs.
-- Les opérateurs `:first-child` et cie fonctionnent tel-quel, ils sont souvent utilisés comme dans le premier exemple de la section suivante.
-- Les opérateurs `[propriete=valeur]` sont utilisables sur tous les éléments.
+-   L'opérateur `:not(selecteur)` fonctionne avec tous les selecteurs.
+-   Les opérateurs `:first-child` et cie fonctionnent tel-quel, ils sont souvent utilisés comme dans le premier exemple de la section suivante.
+-   Les opérateurs `[propriete=valeur]` sont utilisables sur tous les éléments.
 
 #### Exemples
 
@@ -250,14 +224,14 @@ input[type=text] {}
 
 Pour plus de selecteurs allez sur [w3school](https://www.w3schools.com/cssref/css_selectors.asp), mais normalement vous devriez pouvoir tout faire avec ceux-là.
 
-> __Note__ **Quels sélecteurs utiliser**
+> [!question] Quels sélecteurs utiliser
 >
-> - Si vous avez un unique élément à styler utilisez un id ou les sélecteurs `xx > :last-child`.
-> - Si vous avez plusieurs éléments à plusieurs endroits dans le document utilisez les classes.
-> - Si vous voulez styler tous les éléments d'une liste utilisez `>`.
-> - Pour les sélecteurs plus spécifiques utilisez des classes aussi : `.dark-on-hover:hover`.
+> -   Si vous avez un unique élément à styler utilisez un id ou les sélecteurs `xx > :last-child`.
+> -   Si vous avez plusieurs éléments à plusieurs endroits dans le document utilisez les classes.
+> -   Si vous voulez styler tous les éléments d'une liste utilisez `>`.
+> -   Pour les sélecteurs plus spécifiques utilisez des classes aussi : `.dark-on-hover:hover`.
 
-> __Note__ **Utilisez plusieurs .css**
+> [!hint] Utilisez plusieurs .css
 >
 > Essayez de bien séparer vos .css, si vous pouvez réutiliser un même fichier pour plusieurs pages vous vous en sortirez mieux, mais ca ne sera pas possible si votre .css contient des sélecteurs trop vastes (`*`, `li`...).
 
@@ -267,7 +241,7 @@ La console et l'inspecteur web sont les meilleurs amis du développeur web. Ils 
 
 Pour ouvrir les outils de développement web (devtools) cherchez le bouton dans les menus de votre navigateur, sous Firefox vous pouvez aussi faire <kbd>f12</kbd> ou <kbd>Ctrl+Shift+I</kbd>.
 
-> __Note__ **L'inspecteur css**
+> [!example] L'inspecteur css
 >
 > ![missing inspector image](resources/inspector-0.png)
 >
@@ -280,7 +254,7 @@ Pour ouvrir les outils de développement web (devtools) cherchez le bouton dans 
 >
 > Avec <kbd>Ctrl+Shift+C</kbd> vous pouvez sélectionner un élément de la page sans passer par l'inspecteur html.
 
-> __Note__ **La console JS**
+> [!example] La console JS
 >
 > ![missing image "inspector-2.png"](resources/inspector-2.png)
 >
@@ -292,7 +266,7 @@ Pour ouvrir les outils de développement web (devtools) cherchez le bouton dans 
 >
 > Vous aurez certainement un bon nombre de messages d'alerte qui ne servent pas à grand-chose, par exemple ici j'ai un "-moz-osx-font-smoothing : propriété inconnue" qui vient des feuilles de style par défaut de firefox.
 
-> __Warning__ **Le cache http**
+> [!warning] Le cache http
 >
 > Avant de commencer à écrire du css, il faut *toujours* désactiver le cache http. Par défaut votre navigateur enregistre les feuilles de style pour éviter d'avoir à les télécharger à chaque changement de page, mais il arrive que le cache se bloque et que le navigateur ne détecte pas les changements que vous avez apporté à votre .css, pour éviter ça le plus simple est de complètement désactiver le cache.
 >
@@ -323,38 +297,38 @@ Voici une liste des propriétés de positionnement, si vous comprenez les premi�
 
 ![missing image "style-2.png"](resources/style-2.png)
 
-- La `margin` est une marge extérieure, deux `margin` peuvent se chevaucher (ici les deux carrés rouges ne sont séparés que par 30px, pas 60px).
-- Le `padding` est une marge intérieure, une `margin` et un `padding` peuvent se chevaucher mais un padding ne peut pas dépasser une `margin`.
-- La `border` s'applique entre les deux marges, on l'utilise surtout pour styler les éléments, pas vraiment pour les placer.
+-   La `margin` est une marge extérieure, deux `margin` peuvent se chevaucher (ici les deux carrés rouges ne sont séparés que par 30px, pas 60px).
+-   Le `padding` est une marge intérieure, une `margin` et un `padding` peuvent se chevaucher mais un padding ne peut pas dépasser une `margin`.
+-   La `border` s'applique entre les deux marges, on l'utilise surtout pour styler les éléments, pas vraiment pour les placer.
 
 Rapportez vous à l'onglet *Mise en page* des devtools pour vérifier que vos marges sont bonnes ou y trouver des problèmes.
 
 **display:**
-- flex - liste dynamique~
-- none - cache l'élément
-- block - l'élément prend toute une ligne
-- inline - l'élément s'insère dans une ligne, on ne peut plus lui donner une taille
-- inline-block - inline mais sa taille peut être forcée
-- grid - affichage grille, utilisez `<table>` à la place de cette propriété
+-   flex - liste dynamique~
+-   none - cache l'élément
+-   block - l'élément prend toute une ligne
+-   inline - l'élément s'insère dans une ligne, on ne peut plus lui donner une taille
+-   inline-block - inline mais sa taille peut être forcée
+-   grid - affichage grille, utilisez `<table>` à la place de cette propriété
 
-> __Note__ **Les Flexbox**
+> [!example] Les Flexbox
 >
 > L'affichage flexbox permet de redimensionner automatiquement un containeur à la taille de ce qu'il contient, c'est très pratique quand vous ne savez pas exactement quelle taille font vos éléments.
 > Allez regarder [ici](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) pour plus d'info !
 
 **position**:
-- absolute - utilisé avec `top left right bottom` pour donner une position dans l'élément parent le plus proche de position `relative`. Souvent utilisé pour les popups car la position ne dépend plus du scroll.
-- relative - comme par défaut, utilisé avec `absolute`.
-- sticky - comme le positionnement par défaut mais ne peut pas sortir de l'écran, souvent utilisé pour les bannières (champ de recherche de google par exemple).
+-   absolute - utilisé avec `top left right bottom` pour donner une position dans l'élément parent le plus proche de position `relative`. Souvent utilisé pour les popups car la position ne dépend plus du scroll.
+-   relative - comme par défaut, utilisé avec `absolute`.
+-   sticky - comme le positionnement par défaut mais ne peut pas sortir de l'écran, souvent utilisé pour les bannières (champ de recherche de google par exemple).
 
-> __Note__ **Quand utiliser quoi**
+> [!question] Quand utiliser quoi
 >
 > Les propriétés les plus importantes à connaître sont `margin`, `padding`, `display: flex` et `position: absolute` (plus rarement utilisée).
 > Si possible évitez de donner des tailles fixes à vos éléments (`width`/`height`), préférez laisser la page s'organiser toute seule.
 
 #### Les unités
 
-> __Note__ **Unités de taille**
+> [!tldr] Unités de taille
 >
 > | Unité | Dimension | Exemple |
 > |-------|-----------|---------|
@@ -367,7 +341,7 @@ Rapportez vous à l'onglet *Mise en page* des devtools pour vérifier que vos ma
 >
 > Il en existe d'autres mais qui sont beaucoup plus rarement utilisées.
 
-> __Note__ **Unités de couleur**
+> [!tldr] Unités de couleur
 >
 >
 > | Format | Usage | Exemple |
@@ -385,7 +359,7 @@ Rapportez vous à l'onglet *Mise en page* des devtools pour vérifier que vos ma
 
 ### Styles
 
-Styles utiles :
+**Styles utiles :**
 
 | Style | Utilité |
 |-------|---------|
@@ -397,9 +371,20 @@ Styles utiles :
 | list-style | permet de retirer les points des listes |
 | border-radius | permet d'arrondir un élément |
 
-> __Note__ **Exemples**
+Par exemple :
+```css
+button {
+  background-color: red;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  color: blue;
+}
+```
+
+> [!check] Exemples
 >
 > Vous trouverez quelques exemples dans les .html liés à côté du cours. Allez voir pour trouver votre bonheur.
+> Pour vraiment apprendre le css, il faut vraiment pratiquer. Je ne peux pas vous donner beaucoup plus.
 
 ### Outils supplémentaires
 #### Google icons
@@ -416,8 +401,6 @@ Ensuite vous pourrez intégrer des icônes en les trouvant [ici](https://fonts.g
 Vous pouvez utiliser [ce site](https://html-css-js.com/css/generator/box-shadow/) pour générer des effets sur les bordures.
 Vous pouvez utiliser [ce site](https://getwaves.io/) pour générer des vagues en svg et les intégrer à vos pages en tant qu'images.
 
----
-
 ## Requêtes
 
 Avant de passer à la partie dynamique (php/js) il vaut mieux comprendre les requêtes.
@@ -425,7 +408,7 @@ Avant de passer à la partie dynamique (php/js) il vaut mieux comprendre les req
 En web, tout passe par des *requêtes* : quand vous chargez une page web votre navigateur émet une première requête pour demander la page au site web. Après avoir obtenu la page il va envoyer une nouvelle requête pour chaque fichier css/js/... nécessaire. Et pour interagir avec le serveur (quand on se connecte, quand on clique sur un bouton...) une ou plusieurs requêtes peuvent être envoyées.
 Chaque requête possède une url de destination et peut posséder des paramètres.
 
-> __Note__ **Requête GET**
+> [!tldr] Requête GET
 >
 > La requête GET est la plus simple, elle demande un document au serveur. Elle peut contenir des paramètres qui sont encodés dans l'url :
 > ```
@@ -434,7 +417,7 @@ Chaque requête possède une url de destination et peut posséder des paramètre
 > Ici il y a un paramètre : `v=lhjk5x54bsE` (nom=`v` valeur=`lhjk5x54bsE`). Il peut y en avoir plusieurs, séparés par des `&`.
 > Quand vous chargez une page c'est une requête GET qui est envoyée, avec l'url de la page.
 
-> __Note__ **Requête POST**
+> [!tldr] Requête POST
 >
 > La requête POST est équivalente à GET mais les paramètres sont cachés dans le corps de la requête, pas dans l'url. Elle est utilisée pour la connexion par exemple, pour éviter d'afficher un mot de passe dans l'url.
 
@@ -451,8 +434,6 @@ Les *forms* (formulaires) sont les balises `<form action="..." method="...">` de
 Pour passer des paramètres il vous faut des balises `<input type="..."/>`.
 
 Plus d'info dans les exemples.
-
----
 
 ## php
 
@@ -485,9 +466,9 @@ $list = [ "item 1", "item 2", "item 3" ];
 
 ### Syntaxe de base
 
-- Toutes les variables commencent par $
-- Les `;` de fin de ligne sont obligatoires
-- Comme en JS, vous n'avez pas besoin de classes pour les projets simples, vous pouvez utiliser les tableaux. cf l'exemple
+-   Toutes les variables commencent par $
+-   Les `;` de fin de ligne sont obligatoires
+-   Comme en JS, vous n'avez pas besoin de classes pour les projets simples, vous pouvez utiliser les tableaux. cf l'exemple
 
 ```php
 <?php
@@ -531,14 +512,16 @@ foreach($array as $value)
 ?>
 ```
 
-> __Note__ **Inclusions de fichiers**
+> [!tldr] Inclusions de fichiers
 >
 > Pour utiliser plusieurs fichiers vous pouvez mettre `include "autrefichier.php";` dans une balise php. Pour éviter les doubles inclusions il y a la même chose avec `include_once`. Le chemin du fichier est relatif au fichier courant.
 
-> __Note__ **Librairie standard**
+> [!tldr] Librairie standard
 >
 > Un aspect du php que je n'aime pas du tout mais qu'on ne peut pas éviter c'est que la librairie standard est immense, si vous avez besoin d'une fonction qui fait n'importe quoi il y a beaucoup de chance qu'elle existe déjà, il faut juste connaître son nom et le format de ses paramètres. Par exemple les fonctions "classiques" :
 > `ceil()` `count()` `die()` `empty()` `exit()`  `header()` `include()`  `isset()` `mkdir()` `phpinfo()` `preg_match()` `print_r()` `rand()` `require()` `str_replace()` `str_len()` `trim()`
+> > Après avoir vérifié, il y a ***5342*** fonctions par défaut en php... Bonne chance pour tout apprendre.
+
 
 ### Intégration en html
 
@@ -567,7 +550,7 @@ Ce que vous utiliserez le plus souvent c'est l'intégration avec des `<?= ... ?>
 
 Là vous pouvez remarquer que les corps du `if` et du `for` commencent dans une balise php, contiennent le corps html et finissent dans une deuxième balise php. C'est assez commun comme manière de faire.
 
-> __Note__ **Paramètres GET et POST**
+> [!tldr] Paramètres GET et POST
 >
 > En php on peut récupérer les paramètres des requêtes GET et POST avec les variables globales `$_GET` et `$_POST`. Pour vérifier que les paramètres sont bien remplis on peut utiliser `isset()` :
 > ```php
@@ -597,7 +580,7 @@ Là vous pouvez remarquer que les corps du `if` et du `for` commencent dans une 
 
 Les sessions sont un moyen de conserver des données entre deux pages, sans passer par les requêtes GET et POST. Quand un client vient sur une page web on peut démarrer une session, si le client avait déjà une session elle est reprise et on peut lire les données de session, sinon une nouvelle est créée et sera supprimée après un certain temps après la dernière connexion du client au site.
 
-> __Note__ **Utilité des sessions**
+> [!tldr] Utilité des sessions
 >
 > Les sessions sont très pratiques par exemple pour stocker l'ID d'un utilisateur après qu'il se soit connecté, pour éviter de lui redemander son mot de passe et nom de compte à chaque page.
 
@@ -636,7 +619,7 @@ if(isset($_POST['user_name']) && isset($_POST['password'])) {
 
 Vous pouvez stocker à peu près tout dans les variables de sessions.
 
-> __Note__ **Détruire une session**
+> [!example] Détruire une session
 >
 > Pour vos tests, faites vous une page qui contient seulement :
 > ```php
@@ -665,9 +648,9 @@ print_r($request->fetchAll(PDO::FETCH_ASSOC));
 ```
 
 Quelques précisions :
-- `fetchAll()` peut être remplacé par `fetch()` pour ne récupérer qu'une seule ligne du select ou peut être omis complètement pour une requête `INSERT` par exemple.
-- utilisez *toujours* les '?' dans vos requêtes, ça vous protège des [injections sql](https://www.w3schools.com/sql/sql_injection.asp).
-- Vous pouvez aussi nommer vos paramètres plutôt que d'utiliser les '?' :
+-   `fetchAll()` peut être remplacé par `fetch()` pour ne récupérer qu'une seule ligne du select ou peut être omis complètement pour une requête `INSERT` par exemple.
+-   utilisez *toujours* les '?' dans vos requêtes, ça vous protège des [injections sql](https://www.w3schools.com/sql/sql_injection.asp).
+-   Vous pouvez aussi nommer vos paramètres plutôt que d'utiliser les '?' :
 
 ```php
 $request = $connection->prepare("SELECT * FROM table WHERE column = :value;");
@@ -676,12 +659,12 @@ $request->execute([ 'value' => 3 ]);
 
 Vous trouverez un fichier `db_connection.php` pour la connexion et un exemple dont vous pourrez vous inspirer.
 
-> __Note__ **Bonne pratique**
+> [!check] Bonne pratique
 >
 > Le plus simple et le plus ergonomique dans vos projets c'est de n'avoir qu'un seul fichier responsable de la connexion à la bdd et de faire toutes vos requêtes dedans.
 > Si vous avez l'envie de faire bien et *beaucoup* de temps faites une interface "data storage" et une implémentation "database storage", d'un point de vue génie logiciel c'est le top.
 
-> __Warning__ **A ne jamais faire**
+> [!warn] A ne jamais faire
 >
 > Ne mettez *jamais* de code sql dans vos fichiers html ni dans le code javascript, l'utilisateur ne doit jamais avoir accès à votre base de donnée directement.
 
@@ -707,14 +690,12 @@ De cette manière quelqu'un qui tape l'url de l'API vera une réponse en JSON et
 
 > Si jamais vous vous posez la question : une **API** c'est juste ça, donner la possibilité d'accéder à des données depuis l'extérieur.
 
----
-
 ## Le MVC
 
 L'idée du pattern MVC (model-view-controller) est de scinder les données, l'affichage et la logique d'un système.
-- le **modèle** contient les données, ou c'*est* carrément les données.
-- la **vue** est l'interface utilisateur (l'IHM)
-- le **controller** est l'interface entre le modèle et la vue
+-   le **modèle** contient les données, ou c'*est* carrément les données.
+-   la **vue** est l'interface utilisateur (l'IHM)
+-   le **controller** est l'interface entre le modèle et la vue
 
 La vue n'est pas censée avoir connaissance du modèle et vice-versa.
 
@@ -722,12 +703,10 @@ Dans les faits c'est "simplement" de distinguer vos fichiers html (ou php) de pa
 
 Typiquement dans un projet en MVC on aura 3 dossiers principaux : `model`, `view` et `controller`. Avec un fichier html/php par page web dans `view` et `controller`.
 
-> __Note__ **Mon avis sur le MVC**
+> [!info] **Mon avis sur le MVC**
 >
 > Personnellement, je n'aime pas du tout diviser mes fichiers de cette manière, ce que je fais souvent c'est de mettre tout mon code serveur (php) dans un dossier et tout le code client (html/js/css) dans un autre, et j'utilise js pour faire des requêtes sur mon code php plutôt que d'intégrer php directement (= je n'ai que des .html, pas de .php dans mon code client).
 > Vous êtes libre d'adapter le modèle à votre sauce, mais pour un premier projet c'est sans doute mieux de suivre le MVC à la lettre.
-
----
 
 ## JS
 
@@ -793,7 +772,7 @@ let mathNotes = allNotes.lessons[0].notes;
 Vous avez peut-être déjà vu cette syntaxe, c'est (presque) le JSON. C'est beaucoup utilisé un peu partout, pour des fichiers de configurations par exemple.
 Techniquement les retours à la ligne sont optionnels.
 
-> __Warning__ **Les types**
+> [!warn] Les types
 > 
 > En JS, les variables n'ont pas de type, et souvent ca produit des bugs :
 > ```js
@@ -863,7 +842,7 @@ resultDiv.appendChild(div);
 resultDiv.remove();
 ```
 
-> __Warning__ **L'ordre de chargement des scripts**
+> [!info] L'ordre de chargement des scripts
 >
 > Les scripts sont chargés en même temps que le reste du DOM, si vous mettez votre balise `<script>` en haut du document vous ne pourrez pas utiliser `querySelector` ou `getElementById` puisque les éléments n'existent pas encore !
 > Si vous en avez besoin vous pouvez mettre votre code dans une fonction appelée au chargement de la page :
@@ -892,7 +871,7 @@ Vous pouvez trouver une liste des évènements [ici](https://developer.mozilla.o
 
 ### Eléments du langage
 
-> __Note__ **Les délais**
+> [!tldr] Les délais
 >
 > ```js
 > function someFunction() {
@@ -906,7 +885,7 @@ Vous pouvez trouver une liste des évènements [ici](https://developer.mozilla.o
 > clearInterval(it); // stoppe l'exécution périodique
 > ```
 
-> __Note__ **Les erreurs**
+> [!tldr] Les erreurs
 >
 > Les erreurs fonctionnent comme dans les autres langages classiques mais elles ne sont pas typées donc impossible de 'catch' un seul type d'erreur :
 > ```js
@@ -918,7 +897,7 @@ Vous pouvez trouver une liste des évènements [ici](https://developer.mozilla.o
 > }
 > ```
 
-> __Note__ **Les constantes**
+> [!tldr] Les constantes
 >
 > Par convention les noms des constantes sont en majuscule avec des underscores.
 > ```js
@@ -969,7 +948,7 @@ if(params.has('someparam'))
 
 Quand vous maitrisez un peu le langage il y a quelques opérateurs qui sont très sympa à utiliser :
 
-> __Note__ **Ternary operator**
+> [!tldr] Ternary operator
 >
 > ```js
 > let a = Math.random() < .5;
@@ -978,7 +957,7 @@ Quand vous maitrisez un peu le langage il y a quelques opérateurs qui sont trè
 > ```
 > Syntaxe `condition ? sivrai : sifaux`.
 
-> __Note__ **?. operator**
+> [!tldr] ?. operator
 >
 > ```js
 > let obj1 = { val: 2 };
@@ -991,7 +970,7 @@ Quand vous maitrisez un peu le langage il y a quelques opérateurs qui sont trè
 > }
 > ```
 
-> __Note__ **Les lambdas**
+> [!tldr] Les lambdas
 >
 > Des fonctions écrites plus simplement.
 > ```js
@@ -1016,7 +995,7 @@ Quand vous maitrisez un peu le langage il y a quelques opérateurs qui sont trè
 > ```
 > Attention à la différence entre `()=>{}` et `function(){}` avec `this` et les events. Dans le premier cas `this` ne correspond pas à l'élément qui reçoit l'événement !
 
-> __Note__ **L'unpacking**
+> [!tldr] L'unpacking
 >
 > ```js
 > let someObject = { var1: 32, var2: null };
@@ -1035,7 +1014,7 @@ Quand vous maitrisez un peu le langage il y a quelques opérateurs qui sont trè
 > someFunction(54, params);
 > ```
 
-> __Note__ **Les promise**
+> [!tldr] Les promise
 >
 > Pour le code asynchrone, c'est un peu trop compliqué pour que j'explique tout ici, je vous laisse chercher si ça vous intéresse.
 > Vous trouverez facilement avec les mots clés `Promise` `async` `await`.
@@ -1064,7 +1043,7 @@ Quand vous maitrisez un peu le langage il y a quelques opérateurs qui sont trè
 > }
 > ```
 
-> __Note__ **Les templates**
+> [!tldr] Les templates
 >
 > Les balises `<template>` n'apparaissent pas dans la page web, elles existent pour être dupliquées en js et ajoutées à la page.
 > ```html
@@ -1091,7 +1070,7 @@ Quand vous maitrisez un peu le langage il y a quelques opérateurs qui sont trè
 > ```
 > Attention à ne pas utiliser d'ids dans les templates ! Sinon si vous importez leurs contenus deux fois vous aurez des ids dupliquées.
 
-> __Note__ **L'opérateur ||**
+> [!tldr] L'opérateur ||
 > 
 > En JS tout peut être converti en booléen (`null`->`false`, `""`->`false`, `"a"`->`true`, `0`->`false`, `-4`->`true`...) et l'opérateur `a||b` peut s'écrire `Boolean(a)?a:b`, ca permet d'écrire :
 > ```js
@@ -1100,24 +1079,31 @@ Quand vous maitrisez un peu le langage il y a quelques opérateurs qui sont trè
 > ```
 > De cette manière, si `params.get('key')` renvoie quelque chose, ce sera la valeur de `key`, sinon `key` vaudra `"defaultKey"`.
 
----
+> [!tldr] Les template literals
+>
+> ```js
+> let someval = 3;
+> let otherval = 6;
+> let str = `${someval} + ${otherval} = ${someval + otherval}`; // 3 + 6 = 9
+> ```
+> Dans des textes écrits avec `\`` on peut ajouter des blocks `${...}` qui contiennent du javascript.
 
 ## Notes additionnelles
 
-> __Note__ **Le web en standalone**
+> [!tldr] Le web en standalone
 >
 > [Electron](https://electronjs.org) permet de faire des applications sur mobile et en standalone sur tous les OS. Si vous cherchez à faire une application et que vous avez besoin d'une interface c'est une très bonne solution.
 
-> __Note__ **Debugging sur mobile**
+> [!tldr] Debugging sur mobile
 >
 > Trouver des problèmes de css/js sur mobile est beaucoup plus compliqué que sur PC puisqu'il n'y a pas de console.
 > Il est possible de rattacher une console d'ordi à un process sur un mobile, c'est faisable mais pas toujours évident. Vous pouvez aussi utiliser un émulateur.
 
-> __Note__ **Le favicon**
+> [!tldr] Le favicon
 >
 > Le favicon est l'icône qui apparaît à gauche du nom de l'onglet. Il vous suffit de générer un fichier en .ico et de le placer à la racine de votre site web. Vous pouvez utiliser [ce site](https://favicon.io/) pour le générer.
 
-> __Note__ **Accéder aux pages sans l'extension du fichier**
+> [!tldr] Accéder aux pages sans l'extension du fichier
 >
 > Si sur votre serveur vous avez un fichier `truc.html` (ou .php) à la racine, vous pouvez y accéder à `localhost/truc.html`. Mais pour éviter d'avoir à indiquer le .html on nomme le fichier `index.html` et on le met dans un dossier `truc`. L'arborescence d'un site ressemble souvent à ceci :
 > ```
@@ -1137,8 +1123,6 @@ Quand vous maitrisez un peu le langage il y a quelques opérateurs qui sont trè
 > │   └── ...
 > └── ...
 > ```
-
----
 
 ### NodeJS
 
@@ -1162,7 +1146,7 @@ Et vos autres fichiers devront être placés dans un dossier `public/` adjacent 
 
 La documentation en ligne d'express est très bien faite, je vous laisse chercher pour la suite.
 
-> __Note__ **JS sans le web**
+> [!note] JS sans le web
 >
 > NodeJS peut aussi être utilisé pour vos projets qui n'utilisent pas le web !
 > Après tout, javascript est un langage très général - dans la même veine que python -, d'autant qu'on peut accéder aux fichiers avec node et avec le nombre de librairies qui existent on peut à peu près tout faire très rapidement.

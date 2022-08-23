@@ -71,6 +71,8 @@ pre {
 table {
     border-spacing: 0;
     border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 td, th {
@@ -128,7 +130,52 @@ image {
 .callout > :last-child > :first-child { margin-top: 0; }
 .callout > :last-child > :last-child { margin-bottom: 0; }
 
-.callout-tldr { --callout-c1: rgb(76, 182, 196); --callout-c2: rgb(136, 207, 220); --callout-icon: '\e88e' }
+
+.callout-note { --callout-c1: rgb(76, 104, 196); --callout-c2: rgb(65, 65, 183); --callout-icon: '\e3c9'; }
+.callout-abstract,
+.callout-summary,
+.callout-tldr { --callout-c1: rgb(76, 182, 196); --callout-c2: rgb(136, 207, 220); --callout-icon: '\e88e'; }
+.callout-info,
+.callout-todo { --callout-c1: rgb(87, 202, 217); --callout-c2: rgb(136, 175, 220); --callout-icon: '\e86c'; }
+.callout-tip,
+.callout-hint,
+.callout-important { --callout-c1: rgb(76, 196, 166); --callout-c2: rgb(136, 220, 161); --callout-icon: '\ef55'; }
+.callout-success,
+.callout-check,
+.callout-done { --callout-c1: rgb(84, 196, 76); --callout-c2: rgb(140, 220, 136); --callout-icon: '\e876'; }
+.callout-question,
+.callout-help,
+.callout-faq { --callout-c1: rgb(61, 197, 63); --callout-c2: #68d751; --callout-icon: '\e887'; }
+.callout-warning,
+.callout-caution,
+.callout-attention { --callout-c1: rgb(196, 158, 76); --callout-c2: rgb(220, 178, 136); --callout-icon: '\e002'; }
+.callout-failure,
+.callout-fail,
+.callout-missing { --callout-c1: rgb(196, 76, 76); --callout-c2: rgb(220, 136, 136); --callout-icon: '\e5cd'; }
+.callout-danger,
+.callout-error { --callout-c1: rgb(209, 52, 52); --callout-c2: rgb(238, 106, 106); --callout-icon: '\ec1c'; }
+.callout-bug  { --callout-c1: rgb(209, 52, 52); --callout-c2: rgb(238, 106, 106); --callout-icon: '\e868'; }
+.callout-example  { --callout-c1: rgb(162, 52, 209); --callout-c2:rgb(214, 106, 238); --callout-icon: '\e164'; }
+.callout-quote,
+.callout-cite  { --callout-c1: rgb(193, 193, 193); --callout-c2: rgb(234, 234, 234); --callout-icon: '\e244'; }
+
+
+code > .cdhg-number { color: rgb(5, 80, 174); }
+code > .cdhg-separator,
+code > .cdhg-variable { color: rgb(79, 79, 79); }
+code > .cdhg-class { color: rgb(51, 111, 50); }
+code > .cdhg-builtin { color: rgb(130, 80, 223); }
+code > .cdhg-text { color: rgb(23, 112, 39); }
+code > .cdhg-keyword { color: rgb(23, 83, 179); }
+code > .cdhg-comment { color: rgb(110, 119, 129); }
+code > .cdhg-misc { color: rgb(81, 81, 81); }
+
+code > .cdhg-html-element { color: rgb(11, 130, 166); }
+code > .cdhg-html-attribute { color: rgb(188, 16, 171); }
+code > .cdhg-css-selector { color: rgb(17, 99, 41); }
+code > .cdhg-css-attribute { color: rgb(188, 16, 171); }
+code > .cdhg-js-template-literal,
+code > .cdhg-html-context-switch { color: rgb(144, 123, 0); }
 
 .hljs-name { color: rgb(17, 99, 41); }
 .hljs-attr { color: rgb(5, 80, 174); }

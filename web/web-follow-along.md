@@ -3,13 +3,13 @@
 Comme exercice je vous propose de recréer la page du lecteur youtube, ça vous permettra de pratiquer html et css.
 Si vous préférez, vous pouvez reconstruire une page de discord, ça vous donnera aussi une bonne idée de comment utiliser les choses et vous aurez à faire par vous même, la structure du code ne sera pas très différente mais le résultat si.
 
-> __Note__ **Ce que je vous donne**
+> [!hint] Ce que je vous donne
 >
 > Vous pourrez suivre avec le code que je mettrai en lien mais je vous invite à faire d'abord par vous même. Il y aura des indications avant chaque section.
 > Il y aura aussi un screenshot après chaque avancée, si vous n'avez pas exactement la même chose que moi ce n'est pas grave.
 > Vous pouvez aussi faire tout autre chose et utiliser mon exemple comme source seulement.
 
-> __Note__ **Info - temps par étape**
+> [!check] Info - temps par étape
 >
 > J'indique des temps à chaque étape *à titre indicatif*, ce sont les temps que je pense que j'aurais mit à tout faire pour la première fois, je sors les chiffres de mon chapeau donc ne vous inquiétez pas si vous prenez plus ou moins de temps qu'indiqué.
 > Surtout sur la partie css, vous pouvez passer un instant ou plusieurs jours dessus.
@@ -22,12 +22,12 @@ Avant de commencer une page c'est toujours une bonne idée de dessiner au crayon
 
 On commence *toujours* par l'html, on y écrit ce que contient la page. Le but de cette étape n'est pas d'avoir quelque chose de joli mais de savoir *où* on va, et ce qu'il y aura à terme.
 
-> __Note__ **Etape 1 (1/2h)**
+> [!check] Etape 1 (1/2h)
 >
 > Commencez avec une page vide puis rajoutez les balises, les textes et même les images si vous voulez. Utilisez le [lorem ipsum](https://www.lipsum.com/) pour les textes longs, ça ne sert à rien d'écrire le contenu de votre site tout de suite.
 
 [code](follow-allong/step%201/)
-![missing image](follow-allong/screenshots/step%201.png)
+![missing image](/web/follow-allong/screenshots/step%201.png)
 
 ### Un meilleur html
 
@@ -56,7 +56,7 @@ Si votre image est un fichier vous pouvez indiquer son chemin relatif *au fichie
 
 > Pour les images j'utiliserai les vignettes des tracks de [Lena Raine](https://www.youtube.com/c/LenaRaine/videos), je vous invite à aller écouter ce qu'elle fait !
 
-> __Note__ **Etape 2a (1/4h)**
+> [!check] Etape 2a (1/4h)
 >
 > Rajoutez les images et les icônes si ce n'est pas déjà fait.
 
@@ -67,7 +67,7 @@ Si votre image est un fichier vous pouvez indiquer son chemin relatif *au fichie
 
 C'est aussi le moment de rajouter les liens vers d'autres pages si vous en avez. Ici je parle seulement des liens avec les balises `<a>` comme les menus et les liens externes. Si vous avez des trucs plus compliqués comme une barre de recherche ce sera plus tard.
 
-> __Note__ **Etape 2b (5min)**
+> [!check] Etape 2b (5min)
 >
 > Rajoutez les liens des balises `<a>`.
 
@@ -77,10 +77,9 @@ C'est aussi le moment de rajouter les liens vers d'autres pages si vous en avez.
 
 Pour ajouter du css il va vous falloir des *IDs* et des *classes* dans votre html, si vous avez l'habitude vous pouvez les rajouter en même temps que le reste, mais ça marche aussi de les rajouter après le reste.
 
-> [!note]
 > J'ai rajouté un peu plus d'IDs que nécessaire, en prévision du JS. C'est toujours utile de rajouter les IDs des éléments interactifs (boutons...).
 
-> __Note__ **Etape 2c (10min)**
+> [!check] Etape 2c (10min)
 >
 > Rajoutez les sélecteurs (IDs et classes) les plus importants, de toute façon vous serez amené à les modifier en ajoutant le css.
 
@@ -91,17 +90,16 @@ Pour ajouter du css il va vous falloir des *IDs* et des *classes* dans votre htm
 Le css c'est souvent l'étape la plus longue, on peut faire quelque chose vite fait bien fait ou y passer des heures.
 La première phase c'est de positionner vos éléments sur la page, la seconde c'est mettre les bonnes couleurs aux bons endroits, mettre les accents dans le texte, les bordures etc...
 
-> [!note]
 > Si vous ne voulez pas faire de css tout de suite vous pouvez vous en passer, ca risque juste d'être un peu pénible de développer avec une interface aussi moche.
 
-> __Note__ **Etape 3a (1h à 5h)**
+> [!check] Etape 3a (1h à 5h)
 >
 > Prenez le temps qu'il faut pour bien placer vos éléments dans la page, vous pouvez utiliser les listes des propriétés et des sélecteurs du "cours" et vous servir d'internet !
 
 [code](follow-allong/step%203a/)
 ![missing image](follow-allong/screenshots/step%203a.png)
 
-> __Note__ **Etape 3b (1/2h à 2h)**
+> [!check] Etape 3b (1/2h à 2h)
 >
 > Passez aussi un peu de temps pour colorier ce qui doit être colorié, mettre les bordures, changer les styles par défaut etc...
 
@@ -117,14 +115,14 @@ Si votre page ne s'affiche pas allez voir le "cours".
 
 Pour afficher des vidéos il va vous falloir... des vidéos (qui l'eut cru !). Pour éviter de tout mettre au même endroit je vais créer un fichier `videos.php` qui contiendra juste une liste des vidéos possibles.
 
-> __Note__ **Etape 4a (10min)**
+> [!check] Etape 4a (10min)
 >
 > Faites vous une liste de vidéos et mettez-la dans un fichier `videos.php`, vous pouvez aussi reprendre la mienne si ça ne vous intéresse pas.
 > > Si vous faites le projet discord plutôt que youtube, vous pouvez faire une liste de comptes ou de messages.
 
 Ensuite il reste à rajouter le php dans la page, d'abord avec un `#include "videos.php"` en haut de la page puis avec des `foreach`, `echo` ou `<?= ... ?>`.
 
-> __Note__ **Etape 4b (1/4h)**
+> [!check] Etape 4b (1/4h)
 >
 > Rajoutez le php nécessaire à l'affichage des vidéos, vous pouvez faire comme moi et afficher miniature, titre, auteur et vues et vous pouvez même rajouter un lien vers la vidéo avec une balise `<a href="...">`.
 > Vous aurez peut-être besoin de changer le css, dans ce cas c'est bien plus qu'1/4h qu'il vous faudra.
@@ -155,7 +153,7 @@ Avec ça j'obtiens les attributs que je dois rajouter :
 | method | form | "GET" |
 | name | input | "search_query" |
 
-> __Note__ **Etape 5 (10min)**
+> [!check] Etape 5 (10min)
 >
 > Rajoutez le form et mettez les bons attributs aux bons endroits. Vérifiez que la barre de recherche vous amène bien sur youtube.
 
@@ -167,7 +165,7 @@ On peut garder notre form tel quel à l'exception de son *action*. On va redirig
 
 Une fois que c'est fait il reste à filtrer les vidéos qui peuvent être affichées avec la valeur en question. N'oubliez pas qu'elle peut ne pas exister, notamment à la première ouverture de la page.
 
-> __Note__ **Etape 6 (1/4h)**
+> [!check] Etape 6 (1/4h)
 >
 > Changez le php pour filtrer les vidéos dont le titre contient ce que l'utilisateur a recherché.
 >
@@ -181,7 +179,7 @@ Pour éviter d'avoir à écrire toutes les vidéos tel quelles en php, on va uti
 
 J'utiliserai PDO, vous pourrez trouver un code de base dans le "cours".
 
-> __Note__ **Etape 7 (1/2h-1h)**
+> [!check] Etape 7 (1/2h-1h)
 >
 > Créez un utilisateur et une base de données avec une seule table des vidéos du site. Remplissez la table et faites une requête en php qui récupère les vidéos dont le nom contient la recherche de l'utilisateur.
 > Vous devriez pouvoir retirer le fichier `videos.php` ensuite.
@@ -196,26 +194,26 @@ J'utiliserai PDO, vous pourrez trouver un code de base dans le "cours".
 
 L'idée est de retirer tout le code php de l'index et d'utiliser javascript pour demander au serveur les vidéos à afficher. Du point de vue de l'utilisateur la page va être chargée mais sera vide au début, et les vidéos apparaîtront après.
 
-> __Note__ **Etape I (5min-1/4h)**
+> [!check] Etape I (5min-1/4h)
 >
 > Je vais commencer par créer un fichier `api.php` qui récupèrera seulement les vidéos (comme on le faisait déjà) et qui les affichera sous format json (cf la fonction `json_encode`).
 > Vous pouvez vérifier que l'api fonctionne en allant la regarder depuis votre navigateur.
 
-> __Note__ **Etape II (5min)**
+> [!check] Etape II (5min)
 >
 > Retirez tout le php de l'index, vous pouvez même renommer l'extension en `.html`. Gardez ce l'élément `<li>` qui était dans la boucle `foreach` mais placez-le dans une balise `<template>`, il nous sera utile pour rajouter les vidéos ensuite.
 
-> __Note__ **Etape III (1/2h-3/4h)**
+> [!check] Etape III (1/2h-3/4h)
 >
 > Rajoutez un script js et faites deux fonctions : une qui ajoute une balise `<li>` d'une vidéo à la liste et l'autre qui envoie une requête GET sur l'api et qui appelle la première pour générer la liste des vidéos.
 
-> __Note__ **Etape IV (1/4h)**
+> [!check] Etape IV (1/4h)
 >
 > Il ne reste plus qu'à filtrer les vidéos affichées en fonction du paramètre `search_query` de l'étape 6.
 
 [code](follow-allong/API%201/)
 
-> __Note__ **Alternative**
+> [!check] Alternative
 >
 > Techniquement, c'est mieux d'envoyer le paramètre à l'api, ne rien filtrer en JS et de changer le form pour qu'il ne recharge pas complètement la page. Si vous êtes arrivé jusque là vous ne devriez pas avoir de mal à voir comment faire, je mets quand même le code dans le doute.
 

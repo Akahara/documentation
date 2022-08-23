@@ -1,29 +1,43 @@
+import util from 'util'
 import { unified } from 'unified'
+import { visit } from 'unist-util-visit'
 import { reporter } from 'vfile-reporter'
 import remarkParse from 'remark-parse'
 import remarkFrontmatter from 'remark-frontmatter'
 import remarkGfm from 'remark-gfm'
 import remarkRehype from 'remark-rehype'
-import rehypeSanitize from 'rehype-sanitize'
 import rehypeStringify from 'rehype-stringify'
 import rehypeSlug from 'rehype-slug'
 import remarkPresetLintConsistent from 'remark-preset-lint-consistent'
 import remarkPresetLintRecommended from 'remark-preset-lint-recommended'
-import rehypeHighlight from 'rehype-highlight'
+import rehypeToc from 'rehype-toc'
+
 import rehypeCustomHighlight from './rehype-custom-highlight.js'
-
-import fs from 'fs'
 import remarkCallouts, { calloutHastHandlers } from './remark-callouts.js'
-import util from 'util'
 
-// https://github.com/JS-DevTools/rehype-toc
+/**
+ * Small utility to move the table of contents generated 
+ * by rehype-toc to the {{TOC}} marker in the document
+ */
+function rehypeMoveToc() {
+  return (tree) => {
+    let toc = tree.children.shift();
+    visit(tree, (n, i, p) => {
+      if(n.type == 'text' && n.value == '{{TOC}}')
+        p.children[i] = toc;
+    });
+  };
+}
 
-main()
+/**
+ * Small utility to print the full mdast/hast tree
+ */
+function printTree() {
+  return (tree) => console.log(util.inspect(tree, { showHidden: false, depth: null, colors: true }));
+}
 
-
-async function main() {
-  let printTree = () => (tree, vfile) => console.log(util.inspect(tree, {showHidden: false, depth: null, colors: true}));
-  const file = await unified()
+async function convertMarkdownToHtml(text) {
+  const html = await unified()
     .data('settings', {fragment: true})
     .use(remarkPresetLintConsistent)
     .use(remarkPresetLintRecommended)
@@ -31,32 +45,20 @@ async function main() {
     .use(remarkParse)
     .use(remarkFrontmatter)
     .use(remarkGfm)
-    // .use(printTree)
     .use(remarkRehype, calloutHastHandlers)
     .use(rehypeSlug)
-    // .use(rehypeSanitize)
-    .use(printTree)
     .use(rehypeCustomHighlight)
-    // .use(rehypeHighlight)
+    .use(rehypeToc, { headings: [ "h2", "h3" ] })
+    .use(rehypeMoveToc)
     .use(rehypeStringify)
-    // .process(fs.readFileSync('web/web-follow-along.md'));
-    // .process(fs.readFileSync('web/web-fr.md'));
-    // .process(fs.readFileSync('web/old.md'));
-    .process(`
-    \`\`\`js
-    for(let i = 0; i < 3; i++)
-      console.log(i);
-    \`\`\`
-    `);
-//     .process('\
-// > [!tldr] Text\n\
-// >\n\
-// > Foo\n\
-// ');
-    // .process('> [!tldr] *Foo*\n');
-    // .process('> [!tldr] d*e*\n>\n> e');
+    .process(text);
 
-  fs.writeFileSync("index.html", "<!DOCTYPE html>\n<link href=\"index.css\" rel=\"stylesheet\">\n<link href=\"https://fonts.googleapis.com/icon?family=Material+Icons+Outlined\" rel=\"stylesheet\">\n" + String(file))
-  // console.log(String(file));
-  console.error(reporter(file));
+  // console.error(reporter(text));
+  return text;
+
+  // fs.writeFileSync("index.html", "<!DOCTYPE html>\n<link href=\"index.css\" rel=\"stylesheet\">\n<link href=\"https://fonts.googleapis.com/icon?family=Material+Icons+Outlined\" rel=\"stylesheet\">\n" + String(text))
+}
+
+export {
+  convertMarkdownToHtml
 }
