@@ -1,7 +1,9 @@
 # Git
-![[git.svg|150]] 
+
+![missing image](resources/git.svg)
 
 ## Une introduction
+
 ### Qu'est-ce que c'est ?
 Git est un outil de gestion de versions, il permet de synchroniser des fichiers entre plusieurs personnes et de garder un historique des modifications.
 
@@ -13,9 +15,8 @@ Retenez que git&ne;github, git c'est l'outil, github c'est l'interface.
 
 > Personnelement j'utilise github, mais vous pouvez utiliser ce que vous voulez, les commandes git sont exactement les mêmes.
 
-![[github.svg|100]] ![[gitlab.svg|100]]
-
-<div style="page-break-after: always;"></div>
+![missing image](resources/github.svg)
+![missing image](resources/gitlab.svg)
 
 ## Comment s'en servir
 ### Comment fonctionne git
@@ -32,6 +33,7 @@ Maintenant que le répo existe, on peut y travailler, modifier des fichiers etc.
 Git fonctionne avec des <u>commit</u>. Une fois que vous avez modifié quelque chose, il faut rassembler les modifications en commit et c'est le commit qui sera envoyé/reçu par/vers github.
 
 > [!tldr] Vocab
+> 
 > - **repository** - ensemble de fichiers géré par git
 > - **commit** - ensemble de modifications sauvegardées
 > - **remote** - le répo git distant (sur github), c'est le repository principal de votre projet
@@ -42,21 +44,21 @@ Git fonctionne avec des <u>commit</u>. Une fois que vous avez modifié quelque c
 > - **pull** - récupérer les modifications des autres depuis le remote
 > - **push** - envoyer ses propres modifications vers le remote
 
-<div style="page-break-after: always;"></div>
-
 ### Git depuis la shell
 
 > [!tldr] Rappels sur la shell
+> 
 > La shell (terminal/command line/user prompt/powershell/invité de commande...) est un outil du développeur qui peut à peu près tout faire, mais sans interface.
 >  On en aura un usage assez basique, si vous ne l'avez jamais utilisé dites vous que c'est un "explorateur de fichiers très évolué". Démarrez une shell, tapez `pwd` pour savoir où vous êtes, utilisez `ls` pour lister les fichiers de votre emplacement, `cd ..` pour revenir un dossier en arrière ou `cd truc` pour aller dans le dossier truc.
 >  
->  ![[cmd.png|500]]
+>  ![missing image](resources/cmd.png|500)
 
 #### La partie simple
 
 Pour apprendre git, le plus simple c'est de commencer par la ligne de commande. Il existe des interfaces graphiques que vous pourrez utiliser plus tard...
 
 > [!info] 0 - Préparation
+> 
 > Pour utiliser git dans tous les cas il faut vous placer au bon endroit avant de commencer. Utilisez la commande `cd` ou démarrez votre shell dans le dossier du répo directement.
 > 
 > La première fois que vous utilisez git, faite 
@@ -66,9 +68,8 @@ Pour apprendre git, le plus simple c'est de commencer par la ligne de commande. 
 > ```
 > à noter que votre mail doit correspondre à celui de votre compte github.
 
-<div style="page-break-after: always;"></div>
-
 > [!example] 1 - Créer un nouveau répo
+> 
 > Pour avoir un repository, on peut soit en *cloner* un existant :
 > ```
 > git clone ˂url˃
@@ -83,6 +84,7 @@ Pour apprendre git, le plus simple c'est de commencer par la ligne de commande. 
 > Git vous affichera un message de succès ou un message pour vous dire quoi faire.
 
 > [!example] 2 - Modifier des trucs
+> 
 > Vous pouvez créer un fichier avec votre nom-prénom et le remplir avec ce que vous voulez, vous aurez à le remodifier plus tard.
 > 
 > Après ça faites
@@ -96,6 +98,7 @@ Pour apprendre git, le plus simple c'est de commencer par la ligne de commande. 
 > pour voir la différence entre le dernier commit et vos fichiers locaux.
 
 > [!example] 3 - Le commit
+> 
 > Pour dire à git "j'ai fait ça et j'en suis fier !", il faut faire un *commit*. D'abord faites
 > ```
 > git add ˂edited files...˃
@@ -113,6 +116,7 @@ Pour apprendre git, le plus simple c'est de commencer par la ligne de commande. 
 > > Et si vous faites `git log` vous pourrez voire votre commit (*head*) en avance sur le remote
 
 > [!example] 4 - Le pull
+> 
 > Avant d'envoyer ses modifications vers github, il faut *toujours* récupérer les modifications des autres *avant*. De toute façon git vous le dira si vous ne l'avez pas fait. Pour ca vous pouvez faire
 > ```
 > git pull
@@ -122,13 +126,12 @@ Pour apprendre git, le plus simple c'est de commencer par la ligne de commande. 
 > > C'est souvent une bonne idée de faire un pull *avant* de commencer à travailler, pour avoir la dernière version du projet.
 
 > [!example] 5 - Le push
+> 
 > Une fois que votre repository est synchronisé avec le remote vous pouvez faire
 > ```
 > git push
 > ```
 > Si git vous répond "out of sync" ou quelque chose du genre c'est que quelqu'un à push avant vous ! Allez lui dire qu'il n'est pas gentil et retournez à l'étape 4.
-
-<div style="page-break-after: always;"></div>
 
 > TLDR :
 > 1. git add
@@ -150,7 +153,7 @@ Les *branch*es sont des espaces parallèles de développement. Elles peuvent  se
 
 Chaque repository possède une branche par défaut, souvent `master`. C'est la branche sélectionnée par défaut. Vous pouvez voir la branche active avec la première ligne du `git status`.
 
-![[github-branch.png]]
+![missing image](resources/github-branch.png)
 
 Concrètement, une branche est une *version* du repository, qui contient des commits et qui peut être modifiée sans affecter les autres. Je vous propose de les utiliser pour pouvoir push vos modifications sans affecter les autres et quand vous serez prêt vous pourrez fusionner votre branche et la branche principale.
 
@@ -183,6 +186,7 @@ git branch -d <branch name>
 ça rend le répo un peu plus propre. Les commits qui ont été *merge* ne seront pas perdus.
 
 > [!info] Bonne pratique
+> 
 > En début de projet mettez vous d'accord sur l'utilisation des branches, une solution simple est que chacun ait sa branche.
 > Il y a aussi beaucoup de projets ou les branches ne sont pas nécessaires, si le projet n'est pas très grand vous pouvez vous permettre de travailler sur la branche principale.
 
@@ -210,14 +214,14 @@ output/*.txt
 ```
 
 > [!info] Bonne pratique
+> 
 > De manière générale, ajoutez *toujours* vos fichiers de configuration d'IDE au .gitignore, ça permet aux autres d'utiliser d'autres IDE et ça peut poser problème entre différentes configurations.
 > > Il m'est arrivé d'avoir à modifier un fichier à chaque commit parce que la version de Java n'était pas la même sur mes deux machines ; évitez vous ça.
 
 Normalement vous avez des exemples de .gitignore à côté de ce fichier. Vous pouvez aussi en trouver des plus ou moins complets [ici](https://github.com/github/gitignore).
 
-<div style="page-break-after: always;"></div>
-
 > [!attention] Attention
+> 
 > Si vous rajoutez un fichier au .gitignore mais qu'il est déjà dans un commit il faudra faire `git rm --cached <fichier>` et faire un nouveau commit. Ca supprimera le fichier de ceux qui vont pull ensuite, pensez à faire une sauvegarde ou à aller le récupérer dans l'historique git.
 > Pour éviter ça mettez un .gitignore **dès le début du projet**.
 
@@ -231,6 +235,7 @@ Normalement vous avez des exemples de .gitignore à côté de ce fichier. Vous p
 ## Notes
 
 > [!tldr] Commandes essentielles
+> 
 > ```
 > git init
 > git clone ˂url˃
@@ -280,5 +285,3 @@ Après un commit il n'est pas strictement nécessaire de push, vous pouvez accum
   **Attention**, cette action n'est pas réversible !
   
 Si votre cas n'est pas dans la liste, vous pouvez regarder [ici](https://docs.gitlab.com/ee/topics/git/numerous_undo_possibilities_in_git/)
-
-<div style="page-break-after: always;"></div>
