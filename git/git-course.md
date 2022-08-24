@@ -41,7 +41,7 @@ Git fonctionne avec des <u>commit</u>. Une fois que vous avez modifié quelque c
 > - **remote** - le répo git distant (sur github), c'est le repository principal de votre projet
 > - **local** - le répo git local (sur votre ordi, il peut y en avoir plusieurs)
 > - **staged** - un fichier est "staged" si git l'a sauvegardé mais qu'il n'est pas encore dans un commit
-> - **branch** - cf [les branches](git-course#Les%20branches)
+> - **branch** - cf [les branches](#Les%20branches)
 > - **head** - le dernier commit local (sur la branche active)
 > - **pull** - récupérer les modifications des autres depuis le remote
 > - **push** - envoyer ses propres modifications vers le remote
@@ -82,7 +82,7 @@ Pour apprendre git, le plus simple c'est de commencer par la ligne de commande. 
 > ```
 > > La commande clone créé un nouveau dossier dans lequel votre répo habitera, init utilise le dossier dans lequel vous êtes déjà
 >
-> Pour l'exercice, vous pouvez cloner le répo à l'url suivante : [TODO](https://TODO)
+> Pour l'exercice, commencez par cloner le répo dont je vous donne l'url.
 > Git vous affichera un message de succès ou un message pour vous dire quoi faire.
 
 > [!example] 2 - Modifier des trucs

@@ -383,7 +383,7 @@ button {
 
 > [!check] Exemples
 >
-> Vous trouverez quelques exemples dans les .html liés à côté du cours. Allez voir pour trouver votre bonheur.
+> Vous trouverez quelques exemples [ici](https://github.com/Akahara/documentation/tree/master/web/examples). Allez voir pour trouver votre bonheur.
 > Pour vraiment apprendre le css, il faut vraiment pratiquer. Je ne peux pas vous donner beaucoup plus.
 
 ### Outils supplémentaires

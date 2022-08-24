@@ -8,6 +8,8 @@ Si vous préférez, vous pouvez reconstruire une page de discord, ça vous donne
 > Vous pourrez suivre avec le code que je mettrai en lien mais je vous invite à faire d'abord par vous même. Il y aura des indications avant chaque section.
 > Il y aura aussi un screenshot après chaque avancée, si vous n'avez pas exactement la même chose que moi ce n'est pas grave.
 > Vous pouvez aussi faire tout autre chose et utiliser mon exemple comme source seulement.
+>
+> N'oubliez pas les exemples [ici](https://github.com/Akahara/documentation/tree/master/web/examples) !
 
 > [!check] Info - temps par étape
 >
@@ -26,7 +28,7 @@ On commence *toujours* par l'html, on y écrit ce que contient la page. Le but d
 >
 > Commencez avec une page vide puis rajoutez les balises, les textes et même les images si vous voulez. Utilisez le [lorem ipsum](https://www.lipsum.com/) pour les textes longs, ça ne sert à rien d'écrire le contenu de votre site tout de suite.
 
-[code](follow-allong/step%201/)
+[code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/step%201/)
 ![missing image](web/follow-allong/screenshots/step%201.png)
 
 ### Un meilleur html
@@ -60,7 +62,7 @@ Si votre image est un fichier vous pouvez indiquer son chemin relatif *au fichie
 >
 > Rajoutez les images et les icônes si ce n'est pas déjà fait.
 
-[code](follow-allong/step%202a/)
+[code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/step%202a/)
 ![missing image](follow-allong/screenshots/step%202a.png)
 
 #### Les liens
@@ -96,14 +98,14 @@ La première phase c'est de positionner vos éléments sur la page, la seconde c
 >
 > Prenez le temps qu'il faut pour bien placer vos éléments dans la page, vous pouvez utiliser les listes des propriétés et des sélecteurs du "cours" et vous servir d'internet !
 
-[code](follow-allong/step%203a/)
+[code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/step%203a/)
 ![missing image](follow-allong/screenshots/step%203a.png)
 
 > [!check] Etape 3b (1/2h à 2h)
 >
 > Passez aussi un peu de temps pour colorier ce qui doit être colorié, mettre les bordures, changer les styles par défaut etc...
 
-[code](follow-allong/step%203b/)
+[code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/step%203b/)
 ![missing image](follow-allong/screenshots/step%203b.png)
 
 ### Le php
@@ -127,7 +129,7 @@ Ensuite il reste à rajouter le php dans la page, d'abord avec un `#include "vid
 > Rajoutez le php nécessaire à l'affichage des vidéos, vous pouvez faire comme moi et afficher miniature, titre, auteur et vues et vous pouvez même rajouter un lien vers la vidéo avec une balise `<a href="...">`.
 > Vous aurez peut-être besoin de changer le css, dans ce cas c'est bien plus qu'1/4h qu'il vous faudra.
 
-[code](follow-allong/step%204/)
+[code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/step%204/)
 ![missing image](follow-allong/screenshots/step%204.png)
 
 Ca c'était le php statique, pas de connexion avec une base de données ni d'entrées utilisateur.
@@ -157,7 +159,7 @@ Avec ça j'obtiens les attributs que je dois rajouter :
 >
 > Rajoutez le form et mettez les bons attributs aux bons endroits. Vérifiez que la barre de recherche vous amène bien sur youtube.
 
-[code](follow-allong/step%205/)
+[code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/step%205/)
 
 ### L'interaction form-php
 
@@ -171,7 +173,7 @@ Une fois que c'est fait il reste à filtrer les vidéos qui peuvent être affich
 >
 > > N'hésitez pas à différencier le code php pour l'affichage et pour le filtrage. Souvent on met tout ce qui est récupération des données en php avant l'html et l'affichage est mixé à l'html.
 
-[code](follow-allong/step%206/)
+[code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/step%206/)
 
 ### BDD
 
@@ -184,7 +186,7 @@ J'utiliserai PDO, vous pourrez trouver un code de base dans le "cours".
 > Créez un utilisateur et une base de données avec une seule table des vidéos du site. Remplissez la table et faites une requête en php qui récupère les vidéos dont le nom contient la recherche de l'utilisateur.
 > Vous devriez pouvoir retirer le fichier `videos.php` ensuite.
 
-[code](follow-allong/step%207/)
+[code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/step%207/)
 
 ## La suite
 
@@ -211,10 +213,10 @@ L'idée est de retirer tout le code php de l'index et d'utiliser javascript pour
 >
 > Il ne reste plus qu'à filtrer les vidéos affichées en fonction du paramètre `search_query` de l'étape 6.
 
-[code](follow-allong/API%201/)
+[code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/API%201/)
 
 > [!check] Alternative
 >
 > Techniquement, c'est mieux d'envoyer le paramètre à l'api, ne rien filtrer en JS et de changer le form pour qu'il ne recharge pas complètement la page. Si vous êtes arrivé jusque là vous ne devriez pas avoir de mal à voir comment faire, je mets quand même le code dans le doute.
 
-[code](follow-allong/API%202/)
+[code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/API%202/)
