@@ -1,4 +1,6 @@
-### Intro
+{{TOC}}
+
+## Intro
 
 Comme exercice je vous propose de recréer la page du lecteur youtube, ça vous permettra de pratiquer html et css.
 Si vous préférez, vous pouvez reconstruire une page de discord, ça vous donnera aussi une bonne idée de comment utiliser les choses et vous aurez à faire par vous même, la structure du code ne sera pas très différente mais le résultat si.
@@ -16,11 +18,11 @@ Si vous préférez, vous pouvez reconstruire une page de discord, ça vous donne
 > J'indique des temps à chaque étape *à titre indicatif*, ce sont les temps que je pense que j'aurais mit à tout faire pour la première fois, je sors les chiffres de mon chapeau donc ne vous inquiétez pas si vous prenez plus ou moins de temps qu'indiqué.
 > Surtout sur la partie css, vous pouvez passer un instant ou plusieurs jours dessus.
 
-#### Avant de commencer
+### Avant de commencer
 
 Avant de commencer une page c'est toujours une bonne idée de dessiner au crayon un sketch de ce que vous voulez obtenir à la fin. Pour cet exemple je l'ai déjà [ici](https://youtu.be/dQw4w9WgXcQ).
 
-### D'abord l'html
+## D'abord l'html
 
 On commence *toujours* par l'html, on y écrit ce que contient la page. Le but de cette étape n'est pas d'avoir quelque chose de joli mais de savoir *où* on va, et ce qu'il y aura à terme.
 
@@ -28,14 +30,14 @@ On commence *toujours* par l'html, on y écrit ce que contient la page. Le but d
 >
 > Commencez avec une page vide puis rajoutez les balises, les textes et même les images si vous voulez. Utilisez le [lorem ipsum](https://www.lipsum.com/) pour les textes longs, ça ne sert à rien d'écrire le contenu de votre site tout de suite.
 
-[code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/step%201/)
-![missing image](web/follow-allong/screenshots/step%201.png)
+👉 [code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/step%201/)
+![missing image](follow-allong/screenshots/step%201.png)
 
-### Un meilleur html
+## Un meilleur html
 
 Avant d'ajouter du css on peut faire des choses un peu plus jolies. Par exemple j'aime bien utiliser [google fonts](https://developers.google.com/fonts/docs/material_icons) pour ajouter des icônes et des polices de texte.
 
-#### Google icons
+### Google icons
 
 La liste des icones est [ici](https://fonts.google.com/icons), il vous suffit de rajouter
 ```html
@@ -48,7 +50,7 @@ dans votre balise `<head>`, puis de copier la ligne
 ```
 qui correspond à votre icône.
 
-#### Les images
+### Les images
 
 La balise `<img/>` permet d'intégrer des images à votre page, elle s'utilise de cette façon :
 ```html
@@ -62,10 +64,10 @@ Si votre image est un fichier vous pouvez indiquer son chemin relatif *au fichie
 >
 > Rajoutez les images et les icônes si ce n'est pas déjà fait.
 
-[code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/step%202a/)
+👉 [code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/step%202a/)
 ![missing image](follow-allong/screenshots/step%202a.png)
 
-#### Les liens
+### Les liens
 
 C'est aussi le moment de rajouter les liens vers d'autres pages si vous en avez. Ici je parle seulement des liens avec les balises `<a>` comme les menus et les liens externes. Si vous avez des trucs plus compliqués comme une barre de recherche ce sera plus tard.
 
@@ -75,7 +77,7 @@ C'est aussi le moment de rajouter les liens vers d'autres pages si vous en avez.
 
 > Je ne mets pas le code tout de suite, quand j'ai construit l'exemple j'ai rajouté les liens après le css.
 
-#### Les sélecteurs
+### Les sélecteurs
 
 Pour ajouter du css il va vous falloir des *IDs* et des *classes* dans votre html, si vous avez l'habitude vous pouvez les rajouter en même temps que le reste, mais ça marche aussi de les rajouter après le reste.
 
@@ -87,7 +89,7 @@ Pour ajouter du css il va vous falloir des *IDs* et des *classes* dans votre htm
 
 > Je ne mets pas le code tout de suite, il n'a de l'intérêt qu'après le css.
 
-### Le css
+## Le css
 
 Le css c'est souvent l'étape la plus longue, on peut faire quelque chose vite fait bien fait ou y passer des heures.
 La première phase c'est de positionner vos éléments sur la page, la seconde c'est mettre les bonnes couleurs aux bons endroits, mettre les accents dans le texte, les bordures etc...
@@ -98,17 +100,17 @@ La première phase c'est de positionner vos éléments sur la page, la seconde c
 >
 > Prenez le temps qu'il faut pour bien placer vos éléments dans la page, vous pouvez utiliser les listes des propriétés et des sélecteurs du "cours" et vous servir d'internet !
 
-[code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/step%203a/)
+👉 [code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/step%203a/)
 ![missing image](follow-allong/screenshots/step%203a.png)
 
 > [!check] Etape 3b (1/2h à 2h)
 >
 > Passez aussi un peu de temps pour colorier ce qui doit être colorié, mettre les bordures, changer les styles par défaut etc...
 
-[code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/step%203b/)
+👉 [code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/step%203b/)
 ![missing image](follow-allong/screenshots/step%203b.png)
 
-### Le php
+## Le php
 
 Pour pratiquer un peu le php je vous propose de faire en sorte que les vidéos listées à droite du lecteur soient choisies aléatoirement à chaque rechargement de la page.
 
@@ -129,14 +131,14 @@ Ensuite il reste à rajouter le php dans la page, d'abord avec un `#include "vid
 > Rajoutez le php nécessaire à l'affichage des vidéos, vous pouvez faire comme moi et afficher miniature, titre, auteur et vues et vous pouvez même rajouter un lien vers la vidéo avec une balise `<a href="...">`.
 > Vous aurez peut-être besoin de changer le css, dans ce cas c'est bien plus qu'1/4h qu'il vous faudra.
 
-[code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/step%204/)
+👉 [code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/step%204/)
 ![missing image](follow-allong/screenshots/step%204.png)
 
 Ca c'était le php statique, pas de connexion avec une base de données ni d'entrées utilisateur.
 
 Avant d'intégrer bdd/interactivité il va nous falloir un *form* en html.
 
-### Les forms
+## Les forms
 
 Nous allons utiliser le champ de recherche en haut de la page pour filtrer les vidéos de la barre de droite - ce n'est pas très raccord avec le site de base mais ça nous évite d'avoir à créer plusieurs pages.
 
@@ -159,9 +161,9 @@ Avec ça j'obtiens les attributs que je dois rajouter :
 >
 > Rajoutez le form et mettez les bons attributs aux bons endroits. Vérifiez que la barre de recherche vous amène bien sur youtube.
 
-[code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/step%205/)
+👉 [code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/step%205/)
 
-### L'interaction form-php
+## L'interaction form-php
 
 On peut garder notre form tel quel à l'exception de son *action*. On va rediriger la requête sur la même page en remplaçant l'url de youtube par "#". On va s'assurer que la valeur du champ de recherche est bien passée en ajoutant `<?= $_GET['search_query'] ?>` quelque part, tout en haut de l'html ou dans le titre de la vidéo par exemple.
 
@@ -173,9 +175,9 @@ Une fois que c'est fait il reste à filtrer les vidéos qui peuvent être affich
 >
 > > N'hésitez pas à différencier le code php pour l'affichage et pour le filtrage. Souvent on met tout ce qui est récupération des données en php avant l'html et l'affichage est mixé à l'html.
 
-[code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/step%206/)
+👉 [code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/step%206/)
 
-### BDD
+## BDD
 
 Pour éviter d'avoir à écrire toutes les vidéos tel quelles en php, on va utiliser une base de données, avec apache et mysql vous devriez avoir accès à phpmyadmin ([localhost/phpmyadmin](http://localhost/phpmyadmin)), vous devriez pouvoir créer une bdd et un utilisateur avec un mot de passe.
 
@@ -186,7 +188,7 @@ J'utiliserai PDO, vous pourrez trouver un code de base dans le "cours".
 > Créez un utilisateur et une base de données avec une seule table des vidéos du site. Remplissez la table et faites une requête en php qui récupère les vidéos dont le nom contient la recherche de l'utilisateur.
 > Vous devriez pouvoir retirer le fichier `videos.php` ensuite.
 
-[code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/step%207/)
+👉 [code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/step%207/)
 
 ## La suite
 
@@ -213,10 +215,10 @@ L'idée est de retirer tout le code php de l'index et d'utiliser javascript pour
 >
 > Il ne reste plus qu'à filtrer les vidéos affichées en fonction du paramètre `search_query` de l'étape 6.
 
-[code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/API%201/)
+👉 [code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/API%201/)
 
 > [!check] Alternative
 >
 > Techniquement, c'est mieux d'envoyer le paramètre à l'api, ne rien filtrer en JS et de changer le form pour qu'il ne recharge pas complètement la page. Si vous êtes arrivé jusque là vous ne devriez pas avoir de mal à voir comment faire, je mets quand même le code dans le doute.
 
-[code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/API%202/)
+👉 [code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/API%202/)

@@ -7,8 +7,8 @@
 {{TOC}}
 
 ### Qu'est-ce que c'est ?
-Git est un outil de gestion de versions, il permet de synchroniser des fichiers entre plusieurs personnes et de garder un historique des modifications.
 
+Git est un outil de gestion de versions, il permet de synchroniser des fichiers entre plusieurs personnes et de garder un historique des modifications.
 
 ### Qu'est-ce que ce n'est pas
 Git est très pratique pour les projets à plusieurs mais il ne résout pas tout. Ce n'est pas une solution miracle - vous aurez encore beaucoup de travail à faire par vous même.
@@ -237,7 +237,9 @@ Normalement vous avez des exemples de .gitignore à côté de ce fichier. Vous p
 ## Notes
 
 > [!tldr] Commandes essentielles
-> 
+>
+> Si vous connaissez ces commandes vous pouvez a peu près tout faire, elles sont détaillées plus haut. 
+>
 > ```
 > git init
 > git clone ˂url˃
