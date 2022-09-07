@@ -261,7 +261,7 @@ Normalement vous avez des exemples de .gitignore à côté de ce fichier. Vous p
 > git merge ˂branch˃
 > ```
 
-[Cheat-sheet git](https://training.github.com/downloads/github-git-cheat-sheet.pdf)
+👉 [Cheat-sheet git](https://training.github.com/downloads/github-git-cheat-sheet.pdf)
 
 Après un commit il n'est pas strictement nécessaire de push, vous pouvez accumuler des commits en push plusieurs d'un coup, ça peut être une bonne idée si vous avez cassé quelque chose dans le projet par exemple. Il vaut toujours mieux attendre que de push des modifications qui vont gêner les autres, ou alors push sur une branche annexe.
 

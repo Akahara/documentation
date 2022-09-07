@@ -1,5 +1,4 @@
-
-## Intégration github
+## Les Tokens de connection
 
 Au bout d'un moment vous voudrez peut-être integrer git à votre IDE, il y a 11 chances sur 10 qu'il vous demande de vous connecter, et depuis ~2019 il vous faut un *token* pour vous connecter.
 
@@ -14,8 +13,3 @@ Comme dit github, créer un token à durée de vie illimitée n'est pas conseill
 
 Et **surtout** notez le token !! C'est très pénible d'avoir à en recréer un à chaque fois qu'on oublie le dernier.
 Ensuite quand votre IDE vous demandera votre *mot de passe*, il faudra utiliser votre token, et *pas* votre mot de passe github.
-
-## Example d'intégrations
-### Intégration Visual Studio Code
-
-![missing image](resources/integration-vsc-1.png)
