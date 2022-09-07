@@ -1,4 +1,4 @@
-This repository contains various documentation documents about various topics written at various times.
+This repository contains various documentation documents about various topics written at various times. It is hosted on [github.com/Akahara/documentation](https://github.com/Akahara/documentation).
 
 The intended way to read markdown files in this repo is to go at [acalais.fr/documentation](https://acalais.fr/documentation), github's markdown is fine but not quite good enough for my taste.
 
