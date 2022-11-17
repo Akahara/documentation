@@ -1,3 +1,6 @@
+
+## Table des matières
+
 {{TOC}}
 
 ## Intro
@@ -163,7 +166,7 @@ Avec ça j'obtiens les attributs que je dois rajouter :
 
 👉 [code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/step%205/)
 
-## L'interaction form-php
+## L'intéraction form-php
 
 On peut garder notre form tel quel à l'exception de son *action*. On va rediriger la requête sur la même page en remplaçant l'url de youtube par "#". On va s'assurer que la valeur du champ de recherche est bien passée en ajoutant `<?= $_GET['search_query'] ?>` quelque part, tout en haut de l'html ou dans le titre de la vidéo par exemple.
 
@@ -222,3 +225,7 @@ L'idée est de retirer tout le code php de l'index et d'utiliser javascript pour
 > Techniquement, c'est mieux d'envoyer le paramètre à l'api, ne rien filtrer en JS et de changer le form pour qu'il ne recharge pas complètement la page. Si vous êtes arrivé jusque là vous ne devriez pas avoir de mal à voir comment faire, je mets quand même le code dans le doute.
 
 👉 [code](https://github.com/Akahara/documentation/tree/master/web/follow-allong/API%202/)
+
+## Conclusion
+
+Avec tout ça vous avez de très bonnes bases pour faire à peu près n'importe quoi en web, comme toujours google est votre amis si vous avez des questions spécifiques.

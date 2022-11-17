@@ -76,6 +76,20 @@ Si vous ouvrez le fichier maintenant avec votre navigateur vous devriez avoir un
 > > Techniquement le / n'est pas nécessaire, il est possible que j'en oublie certains, vous n'êtes pas obligés non plus de le mettre si vous savez quelles balises possèdent un contenu ou pas.
 >
 > On peut rajouter des paramètres à certaines balises, par exemple `lang="en"` dans la balise `html`, les paramètres dépendent de la balise.
+>
+
+Par exemple
+```html
+<html lang="fr">
+<body>
+	<img src="/media/image1.png"/>
+	<div>
+		Du texte<br/>
+		Plus de texte
+	</div>
+</body>
+</html>
+```
 
 ### Les balises utiles
 
@@ -104,6 +118,8 @@ Vous pouvez en retrouver plus dans la [doc mdn](https://developer.mozilla.org/en
 >
 > Pour organiser le document le plus souvent on utilise les `<div>`, il peut y en avoir plusieurs dizaines/centaines très rapidement.
 > La différence principale entre `<span>` et `<div>` est que le `<span>` ne fait pas un retour à la ligne automatiquement.
+
+Allez voir les 👉[examples](https://github.com/Akahara/documentation/tree/master/web/examples/html/) pour savoir comment utiliser ces balises.
 
 ### W3C
 
@@ -262,7 +278,7 @@ Pour ouvrir les outils de développement web (devtools) cherchez le bouton dans 
 >
 > Vous pouvez écrire n'importe quoi dans la console dynamique et avoir immédiatement le résultat.
 >
-> Vous pouvez voir les problèmes de chargement en activant les `requêtes` et le `xhr` dans les filtres. Ici par exemple le favicon n'a pas pu être chargé car il n'existe pas.
+> Vous pouvez voir les problèmes de chargement en activant les `requêtes` et le `xhr` dans les filtres. Ici par exemple le *favicon* (l'icône de l'onglet) n'a pas pu être chargé car il n'existe pas.
 >
 > Vous aurez certainement un bon nombre de messages d'alerte qui ne servent pas à grand-chose, par exemple ici j'ai un "-moz-osx-font-smoothing : propriété inconnue" qui vient des feuilles de style par défaut de firefox.
 
@@ -312,8 +328,7 @@ Rapportez vous à l'onglet *Mise en page* des devtools pour vérifier que vos ma
 -   grid - affichage grille, utilisez `<table>` à la place de cette propriété
 
 > [!example] Les Flexbox
->
-> L'affichage flexbox permet de redimensionner automatiquement un containeur à la taille de ce qu'il contient, c'est très pratique quand vous ne savez pas exactement quelle taille font vos éléments.
+> Avec `display: flex;` vous pouvez aussi faire des listes. L'affichage flexbox permet de redimensionner automatiquement un containeur à la taille de ce qu'il contient, c'est très pratique quand vous ne savez pas exactement quelle taille font vos éléments.
 > Allez regarder [ici](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) pour plus d'info !
 
 **position**:
@@ -356,6 +371,8 @@ Rapportez vous à l'onglet *Mise en page* des devtools pour vérifier que vos ma
 >
 > Pour trouver une couleur utilisez votre ide ou tapez "color picker" sur google.
 
+> Les unités sont utiles quand on spéficie des tailles (`width`, `height`, `margin`, `padding`, `top` avec `position:absolute` etc).
+> Quand vous spécifiez des tailles de police avec `font-size` mettez les en `em`/`rem` seulement, pas en `px`. 
 
 ### Styles
 
@@ -383,7 +400,7 @@ button {
 
 > [!check] Exemples
 >
-> Vous trouverez quelques exemples [ici](https://github.com/Akahara/documentation/tree/master/web/examples). Allez voir pour trouver votre bonheur.
+> Vous trouverez quelques exemples 👉[ici](https://github.com/Akahara/documentation/tree/master/web/examples/css/). Allez voir pour trouver votre bonheur.
 > Pour vraiment apprendre le css, il faut vraiment pratiquer. Je ne peux pas vous donner beaucoup plus.
 
 ### Outils supplémentaires
@@ -433,7 +450,7 @@ Par exemple : `<a href="https://www.youtube.com/watch?v=RKW6rjnYEkc">Un lien!</a
 Les *forms* (formulaires) sont les balises `<form action="..." method="...">` de la page. L'action du form est l'url qui recevra la requête, la méthode est le type de requête (GET/POST/...), par défaut envoyer un formulaire revient à aller sur la page de l'url du form.
 Pour passer des paramètres il vous faut des balises `<input type="..."/>`.
 
-Plus d'info dans les exemples.
+Plus d'info dans les 👉[examples](https://github.com/Akahara/documentation/tree/master/web/examples/html).
 
 ## php
 
@@ -664,7 +681,7 @@ Vous trouverez un fichier `db_connection.php` pour la connexion et un exemple do
 > Le plus simple et le plus ergonomique dans vos projets c'est de n'avoir qu'un seul fichier responsable de la connexion à la bdd et de faire toutes vos requêtes dedans.
 > Si vous avez l'envie de faire bien et *beaucoup* de temps faites une interface "data storage" et une implémentation "database storage", d'un point de vue génie logiciel c'est le top.
 
-> [!warn] A ne jamais faire
+> [!attention] A ne jamais faire
 >
 > Ne mettez *jamais* de code sql dans vos fichiers html ni dans le code javascript, l'utilisateur ne doit jamais avoir accès à votre base de donnée directement.
 
@@ -772,7 +789,7 @@ let mathNotes = allNotes.lessons[0].notes;
 Vous avez peut-être déjà vu cette syntaxe, c'est (presque) le JSON. C'est beaucoup utilisé un peu partout, pour des fichiers de configurations par exemple.
 Techniquement les retours à la ligne sont optionnels.
 
-> [!warn] Les types
+> [!attention] Les types
 > 
 > En JS, les variables n'ont pas de type, et souvent ca produit des bugs :
 > ```js
@@ -782,12 +799,14 @@ Techniquement les retours à la ligne sont optionnels.
 > console.log(x-y); // -9
 > console.log(x*y); // 10
 > ```
-> Pour passer de *string* à *number* il y a `parseInt("5")` et `parseFloat(3.14)`.
+> Pour passer de *string* à *number* il y a `parseInt("5")` et `parseFloat("3.14")`.
+> Si vous avez un doute vous pouvez toujours vérifier le type d'une variable avec `typeof "3.14"` qui renvera `"string"` par exemple.
 
 ### Interaction avec le DOM
 
 > DOM = document object model, la page
 
+En JS on peut avoir des variables qui *sont* les éléments de la page, ça nous permet de les modifier depuis le script. Pour la suite je pars de l'exemple :
 ```html
 <div class="container">
     <button>Button</button>
@@ -796,12 +815,14 @@ Techniquement les retours à la ligne sont optionnels.
 <span id="result" class="colored"></span>
 <span class="colored"></span>
 <span class="colored"></span>
+<input id="text-input" type="text"/>
 ```
 **Récupérer les éléments du DOM :**
 ```js
 // par id
 let resultDiv = document.getElementById("result");
-// par sélecteur css (sélectionne le premier)
+let textInput = document.getElementById("text-input");
+// par sélecteur css (renvoie le premier élément qui corréspond)
 let container = document.querySelector(".container");
 let textInput = document.querySelector("input[type=text]");
 // par sélecteur css (renvoie un tableau avec tous les éléments)
@@ -849,7 +870,8 @@ resultDiv.remove();
 > ```js
 > document.addEventListener('load', () => initializeThings());
 > ```
-> Ou rajouter `defer` à la balise `<script>`, ce qui l'oblige à charger après le DOM.
+> Ou rajouter `defer` à la balise `<script>`, ce qui l'oblige à charger après le DOM :
+> `<script src="script.js" defer/>`.
 
 #### Les events
 
@@ -944,7 +966,7 @@ if(params.has('someparam'))
 
 ### Les twists de Javascript
 
-> Passez cette section si c'est la première fois que vous utilisez JS
+> Passez cette section si c'est la première fois que vous utilisez JS, sinon amusez vous bien
 
 Quand vous maitrisez un peu le langage il y a quelques opérateurs qui sont très sympa à utiliser :
 
@@ -1141,6 +1163,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));  
 app.use(express.static('public'));
 app.listen(80, () => console.log("Running on http://localhost"));
+// it is very likely that your computer won't let you start a server on port 80, if so, change to something like 12345 and type 'localhost:12345' in your browser.
 ```
 Et vos autres fichiers devront être placés dans un dossier `public/` adjacent au `main.js`, ensuite vous pouvez démarrer votre serveur avec `node main.js`.
 
@@ -1152,3 +1175,18 @@ La documentation en ligne d'express est très bien faite, je vous laisse cherche
 > Après tout, javascript est un langage très général - dans la même veine que python -, d'autant qu'on peut accéder aux fichiers avec node et avec le nombre de librairies qui existent on peut à peu près tout faire très rapidement.
 >
 > > JS est mon langage de prédilection pour les proof-of-concepts et les projets rapides, je vous invite à en faire autant.
+
+## Liens
+
+La liste des liens les plus utiles :
+
+| Nom | Utilité | lien |
+|---|---|---|
+| Examples | la liste des exemples html/css/js/php | https://github.com/Akahara/documentation/tree/master/web/examples |
+| google icons | des icônes en accès libre | https://fonts.google.com/icons |
+| Doc MDN | liste des balises html | https://developer.mozilla.org/en-US/docs/Web/HTML/Element |
+| W3C Validator | le validateur html | https://validator.w3.org/ |
+| Flexbox | un tuto sur les flexbox css | https://css-tricks.com/snippets/css/a-guide-to-flexbox/ |
+| box shadow | un générateur de bordures css | https://html-css-js.com/css/generator/box-shadow/ |
+| getwaves | un générateur de vagues svg | https://getwaves.io/ |
+| favicon.io | un générateur de favicon | https://favicon.io/ |
