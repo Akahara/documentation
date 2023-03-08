@@ -28,7 +28,7 @@
 
 **PCA/PRA** ::= *plan de continuité/reprise active*, an installation where defective VMs can be moved on other hypervisors to resume activity as soon as they shutdown for any reason
 
-If possible, when a VM is moved from one hypervisor to another, only the logical part if moved, data is stored on a common storage bay.
+If possible, when a VM is moved from one hypervisor to another, only the logical part is moved, data is stored on a common storage bay.
 
 ##### AMDV/VT instructions (asm x64)
 - vmxon - enable vm instructions
@@ -48,6 +48,8 @@ docker run --name <name> ... # run a container with a name, the name can then be
 docker run -p <hostport>:<containerport> ... # map ports from host to container
 docker run -P ... # automatically export container ports from 'EXPOSE' directives of the Dockerfile
 docker run --link <containerid>:<alias> ... # creates an alias in /etc/hosts of the new container (eg. 'ping <alias>' will work)
+docker run -it ... # run command with attached tty
+docker run -d ... # run detached
 docker rename <containerid> <newname> # rename a container
 docker ps # list active containers
 docker ps -a # list all containers
@@ -55,10 +57,6 @@ docker ps --filter='<filter>' # ie. status=exited
 docker ps -l # retrieve the latest run container
 docker ps -q # short id only
 -> docker rm $(docker ps -aq)
-docker run -i -t ... # run command with attached tty
-docker run -d ... # run detached
-docker run -P ... # run and rebind ports
-docker run -v <path> ... # run with a volume
 docker stop <containerid> # gracefully stop container
 docker kill <containerid> # terminate container
 docker start <containerid> # restart a stopped container
@@ -78,6 +76,7 @@ docker history <imageid> # list executed commands that generated an image
 
 ```
 <Ctrl>+P+Q  -- detach
+<Ctrl>+Z    -- detach from "docker compose up"
 ```
 
 ```bash
@@ -90,13 +89,112 @@ docker run -v $(pwd):/backup -v <pathtodir>:/tmp/foo ubuntu cp /tmp/foo/<filenam
 ### Dockerfile
 
 ```Dockerfile
-FROM <imagename>  # FROM ubuntu:18.04
-RUN <cmd...>      # RUN apt-get update
+FROM <imagename>                 # FROM ubuntu:18.04
+RUN <cmd...>                     # RUN apt-get update
 COPY <localfile> <containerfile> # COPY src src
-EXPOSE <ports...> # EXPORT 80 8080 443
+EXPOSE <ports...>                # EXPOSE 80 8080 443
+VOLUME <containerpath>           # VOLUME /data/foo
 
 # CMD is the default "command" to docker run
 CMD [ <args>... ] # CMD [ "ping", "-c", "30", "localhost" ]
 # ENTRYPOINT will be used, the "command" to docker run will be appended to the entry point command (the value of CMD by default )
 ENTRYPOINT [ <args>...] # ENTRYPOINT [ "apt-get" ]
 ```
+
+### Docker compose
+
+Examples:
+```docker-compose.yml
+services:
+  backend:
+    image: panieravide/geovisio:develop
+    command: api
+    volumes:
+      - ./pictures:/data/360app
+      - ./models:/data/360models
+    ports:
+      - 5000:5000
+    depends_on:
+      - db
+    environment:
+      - DB_URL=postgres://gvs:gvspwd@db/geovisio
+  db:
+    image: postgis/postgis:13-3.2
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=gvs
+      - POSTGRES_PASSWORD=gvspwd
+      - POSTGRES_DB=geovisio
+volumes:
+  postgres_data:
+```
+
+```docker-compose.yml
+version: '3.8'
+services:
+  web:
+    image: nginx
+    volumes:
+      - ./wordpress:/usr/share/nginx/html
+      - ./nginx/conf.d/:/etc/nginx/conf.d
+    depends_on:
+      - php
+    links:
+      - php
+    ports:
+      - "8000:80"
+  php:
+    build:
+      context: ./phpfpm
+    volumes:
+      - ./wordpress:/usr/share/nginx/html
+    depends_on:
+      - bdd
+    links:
+      - bdd:mysqldatabase
+    environment:
+      MYSQL_HOST: mysqldatabase
+      MYSQL_USER: mysqlusr
+      MYSQL_PASSWORD: mysqlpwd
+      MYSQL_DATABASE: wordpressdb
+  bdd:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - bdd_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: mysqlpwd
+      MYSQL_USER: mysqlusr
+      MYSQL_PASSWORD: mysqlpwd
+      MYSQL_DATABASE: wordpressdb
+volumes:
+  bdd_data:
+```
+
+```bash
+## to be executed in the directory containing docker-compose.yml
+# start all containers
+docker compose up
+# (detached)
+docker compose up -d
+# stop *and remove* containers
+docker compose down
+# stop containers
+docker compose stop
+# restart stopped containers
+docker compose start
+```
+
+When using a local image, there is no need to build using `docker build`, instead `build:` can be used in a service to specify the Dockerfile path.
+
+When specifying volumes in a `docker-compose.yml`, use `volume:` and volume names (ie. not starting with `./`) to create volumes only accessible to containers OR volume paths (ie. starting with `./`, not in `volume:`) to create volumes that are shared with the host. The former are called *volumes* and the latter *bind mounts*.
+Volumes can be directories or files.
+
+When there is a `VOLUME` directive in the Dockerfile of an image used in a `docker-compose.yml`, the volume can be "overriden" by `volume:` configuration.
+
+### Notes
+
+For tiny images, use `busybox:latest`.
+Beware of permissions when sharing volumes between containers.
+Do not forget to un-daemonize processes, if docker starts but receives nothing on stdout it will consider that an error occured and will kill the container.
