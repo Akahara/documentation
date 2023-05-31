@@ -1,3 +1,5 @@
+Dépaquetage de libibverbs-dev:amd64 (28.0-1ubuntu1) ...
+Sélection du paquet libopenmpi-dev:amd64 précédemment désélectionné.
 #### Vocab
 
 | Acronym | Signification |
